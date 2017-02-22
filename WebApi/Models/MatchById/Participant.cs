@@ -4,15 +4,15 @@ namespace WebApi.Models.MatchById
 {
     public class Participant
     {
-        public int teamId { get; set; }
-        public int spell1Id { get; set; }
-        public int spell2Id { get; set; }
-        public int championId { get; set; }
-        public string highestAchievedSeasonTier { get; set; }
-        public Timeline timeline { get; set; }
-        public List<Mastery> masteries { get; set; }
-        public Stats stats { get; set; }
-        public int participantId { get; set; }
-        public List<Rune> runes { get; set; }
+        public int TeamId { get; set; }
+        public int Spell1Id { get; set; }
+        public int Spell2Id { get; set; }
+        public int ChampionId { get; set; }
+        public string HighestAchievedSeasonTier { get; set; }
+        public Timeline Timeline { get; set; }
+        public List<Mastery> Masteries { get; set; }
+        public Stats Stats { get; set; }
+        public int ParticipantId { get; set; }
+        public List<Rune> Runes { get; set; }
     }
 }

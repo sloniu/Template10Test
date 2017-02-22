@@ -2,9 +2,9 @@
 {
     public class Player
     {
-        public int summonerId { get; set; }
-        public string summonerName { get; set; }
-        public string matchHistoryUri { get; set; }
-        public int profileIcon { get; set; }
+        public int SummonerId { get; set; }
+        public string SummonerName { get; set; }
+        public string MatchHistoryUri { get; set; }
+        public int ProfileIcon { get; set; }
     }
 }

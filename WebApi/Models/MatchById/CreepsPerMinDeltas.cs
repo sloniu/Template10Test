@@ -2,8 +2,8 @@
 {
     public class CreepsPerMinDeltas
     {
-        public double zeroToTen { get; set; }
-        public double tenToTwenty { get; set; }
-        public double twentyToThirty { get; set; }
+        public double ZeroToTen { get; set; }
+        public double TenToTwenty { get; set; }
+        public double TwentyToThirty { get; set; }
     }
 }

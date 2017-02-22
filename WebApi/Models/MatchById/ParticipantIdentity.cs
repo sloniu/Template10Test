@@ -2,7 +2,7 @@
 {
     public class ParticipantIdentity
     {
-        public int participantId { get; set; }
-        public Player player { get; set; }
+        public int ParticipantId { get; set; }
+        public Player Player { get; set; }
     }
 }

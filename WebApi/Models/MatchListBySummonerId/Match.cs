@@ -7,14 +7,14 @@ namespace WebApi.Models.MatchListBySummonerId
 
     public class Match
     {
-        public string region { get; set; }
-        public string platformId { get; set; }
-        public object matchId { get; set; }
-        public int champion { get; set; }
-        public string queue { get; set; }
-        public string season { get; set; }
-        public object timestamp { get; set; }
-        public string lane { get; set; }
-        public string role { get; set; }
+        public string Region { get; set; }
+        public string PlatformId { get; set; }
+        public object MatchId { get; set; }
+        public int Champion { get; set; }
+        public string Queue { get; set; }
+        public string Season { get; set; }
+        public object Timestamp { get; set; }
+        public string Lane { get; set; }
+        public string Role { get; set; }
     }
 }

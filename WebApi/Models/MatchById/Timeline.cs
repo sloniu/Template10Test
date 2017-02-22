@@ -2,14 +2,14 @@
 {
     public class Timeline
     {
-        public CreepsPerMinDeltas creepsPerMinDeltas { get; set; }
-        public XpPerMinDeltas xpPerMinDeltas { get; set; }
-        public GoldPerMinDeltas goldPerMinDeltas { get; set; }
-        public CsDiffPerMinDeltas csDiffPerMinDeltas { get; set; }
-        public XpDiffPerMinDeltas xpDiffPerMinDeltas { get; set; }
-        public DamageTakenPerMinDeltas damageTakenPerMinDeltas { get; set; }
-        public DamageTakenDiffPerMinDeltas damageTakenDiffPerMinDeltas { get; set; }
-        public string role { get; set; }
-        public string lane { get; set; }
+        public CreepsPerMinDeltas CreepsPerMinDeltas { get; set; }
+        public XpPerMinDeltas XpPerMinDeltas { get; set; }
+        public GoldPerMinDeltas GoldPerMinDeltas { get; set; }
+        public CsDiffPerMinDeltas CsDiffPerMinDeltas { get; set; }
+        public XpDiffPerMinDeltas XpDiffPerMinDeltas { get; set; }
+        public DamageTakenPerMinDeltas DamageTakenPerMinDeltas { get; set; }
+        public DamageTakenDiffPerMinDeltas DamageTakenDiffPerMinDeltas { get; set; }
+        public string Role { get; set; }
+        public string Lane { get; set; }
     }
 }

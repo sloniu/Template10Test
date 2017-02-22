@@ -4,7 +4,7 @@ namespace WebApi.Models.SummonerByName
 {
     public class RootObject
     {
-        [JsonProperty("Loseisimprove")]
-        public Loseisimprove loseisimprove { get; set; }
+        [JsonProperty("Summoner")]
+        public Summoner Summoner { get; set; }
     }
 }

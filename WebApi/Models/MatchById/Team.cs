@@ -4,21 +4,21 @@ namespace WebApi.Models.MatchById
 {
     public class Team
     {
-        public int teamId { get; set; }
-        public bool winner { get; set; }
-        public bool firstBlood { get; set; }
-        public bool firstTower { get; set; }
-        public bool firstInhibitor { get; set; }
-        public bool firstBaron { get; set; }
-        public bool firstDragon { get; set; }
-        public bool firstRiftHerald { get; set; }
-        public int towerKills { get; set; }
-        public int inhibitorKills { get; set; }
-        public int baronKills { get; set; }
-        public int dragonKills { get; set; }
-        public int riftHeraldKills { get; set; }
-        public int vilemawKills { get; set; }
-        public int dominionVictoryScore { get; set; }
-        public List<Ban> bans { get; set; }
+        public int TeamId { get; set; }
+        public bool Winner { get; set; }
+        public bool FirstBlood { get; set; }
+        public bool FirstTower { get; set; }
+        public bool FirstInhibitor { get; set; }
+        public bool FirstBaron { get; set; }
+        public bool FirstDragon { get; set; }
+        public bool FirstRiftHerald { get; set; }
+        public int TowerKills { get; set; }
+        public int InhibitorKills { get; set; }
+        public int BaronKills { get; set; }
+        public int DragonKills { get; set; }
+        public int RiftHeraldKills { get; set; }
+        public int VilemawKills { get; set; }
+        public int DominionVictoryScore { get; set; }
+        public List<Ban> Bans { get; set; }
     }
 }

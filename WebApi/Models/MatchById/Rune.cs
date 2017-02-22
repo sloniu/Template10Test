@@ -2,7 +2,7 @@
 {
     public class Rune
     {
-        public int runeId { get; set; }
-        public int rank { get; set; }
+        public int RuneId { get; set; }
+        public int Rank { get; set; }
     }
 }

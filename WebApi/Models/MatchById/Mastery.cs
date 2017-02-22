@@ -2,7 +2,7 @@
 {
     public class Mastery
     {
-        public int masteryId { get; set; }
-        public int rank { get; set; }
+        public int MasteryId { get; set; }
+        public int Rank { get; set; }
     }
 }

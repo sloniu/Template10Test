@@ -2,7 +2,7 @@
 {
     public class Ban
     {
-        public int championId { get; set; }
-        public int pickTurn { get; set; }
+        public int ChampionId { get; set; }
+        public int PickTurn { get; set; }
     }
 }
