@@ -5,20 +5,19 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using WebApi.Models;
+using WebApi.Models.SummonerByName;
 
 namespace WebApi.Controllers
 {
     public class TestController : ApiController
     {
         // GET api/<controller>
-        public ResultDto Get()
+        public Summoner Get()
         {
             var parser = new JsonParser();
-            parser.Parser("na", "lose is improve");
-            return new ResultDto
-            {
-                Data = "Success"
-            };
+
+            return parser.Parser("na", "lose is improve");
+            
         }
 
         // GET api/<controller>/5

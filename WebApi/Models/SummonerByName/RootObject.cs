@@ -1,10 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace WebApi.Models.SummonerByName
 {
     public class RootObject
     {
-        [JsonProperty("Loseisimprove")]
-        public Loseisimprove loseisimprove { get; set; }
+        public List<Summoner> Summoner { get; set; }
     }
 }

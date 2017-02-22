@@ -7,17 +7,17 @@ using Newtonsoft.Json.Serialization;
 
 namespace WebApi.Models.SummonerByName
 {
-    public class Loseisimprove
+    public class Summoner
     {
         [JsonProperty("id")]
-        public int id { get; set; }
+        public int Id { get; set; }
         [JsonProperty("name")]
-        public string name { get; set; }
+        public string Name { get; set; }
         [JsonProperty("profileIconId")]
-        public int profileIconId { get; set; }
+        public int ProfileIconId { get; set; }
         [JsonProperty("revisionDate")]
-        public long revisionDate { get; set; }
+        public long RevisionDate { get; set; }
         [JsonProperty("summonerLevel")]
-        public int summonerLevel { get; set; }
+        public int SummonerLevel { get; set; }
     }
 }
