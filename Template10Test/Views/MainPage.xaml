@@ -132,7 +132,7 @@
                                 </FlyoutBase.AttachedFlyout>
                             </StackPanel>
 <!--                            TODO: fix display of online/offline -->
-                                <TextBlock Text="{Binding State}" HorizontalAlignment="Right" Foreground="Red"/>
+                                <TextBlock Text="{Binding State, Mode=TwoWay}" HorizontalAlignment="Right" Foreground="Red"/>
 
                         </Grid>
                         

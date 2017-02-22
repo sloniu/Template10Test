@@ -1,7 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Windows.Security.Authentication.Web;
+using Newtonsoft.Json;
+using Template10Test.Models.Channel;
 
 namespace Template10Test.Models
 {
@@ -36,7 +41,16 @@ namespace Template10Test.Models
                         Token =
                             webAuthenticationResult.ResponseData.Substring(
                                 webAuthenticationResult.ResponseData.IndexOf("token=", StringComparison.Ordinal) + 6).Replace("&scope=" + Scope,"");
-                        Debug.WriteLine(Token);
+                        Debug.WriteLine($"Token: {Token}");
+
+//                        using (var w = new HttpClient())
+//                        {
+//                            var json = w.GetStringAsync("https://api.twitch.tv/kraken/users/sloniu6/follows/channels" + "?client_id=4hz5hgythniudwl0frrequyu6wxbv02").Result;
+//                            var r = JsonConvert.DeserializeObject<Models.User.RootObject>(json);
+//                            var follows = r.follows;
+//                            
+//                        }
+
                         Debug.WriteLine(WebAuthenticationBroker.GetCurrentApplicationCallbackUri());
                         break;
                     // HTTP error. 

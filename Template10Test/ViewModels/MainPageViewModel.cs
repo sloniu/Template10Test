@@ -109,7 +109,7 @@ namespace Template10Test.ViewModels
                 if (IsLoading) return;
                 using (var w = new HttpClient())
                 {
-                    var json = w.GetStringAsync("https://api.twitch.tv/kraken/channels/" + AddStreamer).Result;
+                    var json = w.GetStringAsync("https://api.twitch.tv/kraken/channels/" + AddStreamer + "?client_id=4hz5hgythniudwl0frrequyu6wxbv02").Result;
                     var r = JsonConvert.DeserializeObject<RootObject>(json);
                     var temp = (settings.Values["streams"] as Array).OfType<string>().ToList();
                     if (temp.Contains(r.name.ToString())) return;
@@ -154,7 +154,7 @@ namespace Template10Test.ViewModels
                 IsLoading = true;
                 using (var w = new HttpClient())
                 {
-                    var json = w.GetStringAsync("https://api.twitch.tv/kraken/users/sloniu6/follows/channels").Result;
+                    var json = w.GetStringAsync("https://api.twitch.tv/kraken/users/sloniu6/follows/channels" + "?client_id=4hz5hgythniudwl0frrequyu6wxbv02").Result;
                     var r = JsonConvert.DeserializeObject<Models.User.RootObject>(json);
                     var follows = r.follows;
                     foreach (var follow in follows)
@@ -219,7 +219,7 @@ namespace Template10Test.ViewModels
                     {
                         try
                         {
-                            var json = w.GetStringAsync("https://api.twitch.tv/kraken/channels/" + st).Result;
+                            var json = w.GetStringAsync("https://api.twitch.tv/kraken/channels/" + st + "?client_id=4hz5hgythniudwl0frrequyu6wxbv02").Result;
                             RootObject r = JsonConvert.DeserializeObject<RootObject>(json);
                             var obj = new Streamer()
                             {

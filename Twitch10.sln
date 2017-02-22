@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template10Test", "Template1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks", "..\AppNotifications\Tasks\Tasks.csproj", "{92D2A0A2-04C2-4369-8A68-CB33893A50F8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{06AE8BA9-8749-4668-8291-DA6380D1802D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,20 +57,24 @@ Global
 		{92D2A0A2-04C2-4369-8A68-CB33893A50F8}.Release|x64.Build.0 = Release|x64
 		{92D2A0A2-04C2-4369-8A68-CB33893A50F8}.Release|x86.ActiveCfg = Release|x86
 		{92D2A0A2-04C2-4369-8A68-CB33893A50F8}.Release|x86.Build.0 = Release|x86
+		{06AE8BA9-8749-4668-8291-DA6380D1802D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06AE8BA9-8749-4668-8291-DA6380D1802D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06AE8BA9-8749-4668-8291-DA6380D1802D}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{06AE8BA9-8749-4668-8291-DA6380D1802D}.Debug|ARM.Build.0 = Debug|Any CPU
+		{06AE8BA9-8749-4668-8291-DA6380D1802D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{06AE8BA9-8749-4668-8291-DA6380D1802D}.Debug|x64.Build.0 = Debug|Any CPU
+		{06AE8BA9-8749-4668-8291-DA6380D1802D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{06AE8BA9-8749-4668-8291-DA6380D1802D}.Debug|x86.Build.0 = Debug|Any CPU
+		{06AE8BA9-8749-4668-8291-DA6380D1802D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06AE8BA9-8749-4668-8291-DA6380D1802D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06AE8BA9-8749-4668-8291-DA6380D1802D}.Release|ARM.ActiveCfg = Release|Any CPU
+		{06AE8BA9-8749-4668-8291-DA6380D1802D}.Release|ARM.Build.0 = Release|Any CPU
+		{06AE8BA9-8749-4668-8291-DA6380D1802D}.Release|x64.ActiveCfg = Release|Any CPU
+		{06AE8BA9-8749-4668-8291-DA6380D1802D}.Release|x64.Build.0 = Release|Any CPU
+		{06AE8BA9-8749-4668-8291-DA6380D1802D}.Release|x86.ActiveCfg = Release|Any CPU
+		{06AE8BA9-8749-4668-8291-DA6380D1802D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://kurasdamian.visualstudio.com/
-		SccProjectUniqueName0 = ..\\AppNotifications\\Tasks\\Tasks.csproj
-		SccProjectName0 = ../AppNotifications/Tasks
-		SccLocalPath0 = ..\\AppNotifications\\Tasks
-		SccLocalPath1 = .
-		SccProjectUniqueName2 = Template10Test\\Template10Test.csproj
-		SccProjectName2 = Template10Test
-		SccLocalPath2 = Template10Test
 	EndGlobalSection
 EndGlobal
