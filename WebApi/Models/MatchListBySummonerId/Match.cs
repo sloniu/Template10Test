@@ -9,7 +9,7 @@ namespace WebApi.Models.MatchListBySummonerId
     {
         public string Region { get; set; }
         public string PlatformId { get; set; }
-        public object MatchId { get; set; }
+        public long MatchId { get; set; }
         public int Champion { get; set; }
         public string Queue { get; set; }
         public string Season { get; set; }
