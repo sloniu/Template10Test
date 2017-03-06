@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using WebApi.Models;
+using WebApi.Models.MatchById;
 using WebApi.Models.SummonerByName;
 
 namespace WebApi.Controllers
@@ -12,14 +13,15 @@ namespace WebApi.Controllers
     public class TestController : ApiController
     {
         // GET api/<controller>
-//        public int Get()
-//        {
-//            var parser = new JsonParser();
-//
-//            //return parser.GetMatchById("na", "lose is improve");
-//            //return parser.GetStats("na", "lose is improve");
-//            return parser.GetChampionId("na", "lose is improve");
-//        }
+        [Route("api/Test/{region}/{name}")]
+        public List<Mastery> Get(string region, string name)
+        {
+            var parser = new JsonParser();
+
+            //return parser.GetMatchById("na", "lose is improve");
+            //return parser.GetStats("na", "lose is improve");
+            return parser.GetMasteries(region, name);
+        }
 
         // GET api/<controller>/5
         [HttpGet]

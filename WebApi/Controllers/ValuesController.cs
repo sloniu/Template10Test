@@ -17,12 +17,11 @@ namespace WebApi.Controllers
         }
 
         // GET api/<controller>/5
-        public string Get(string id)
+        public string Get(string id) //token = "tn7zr48xbz4k3xseuq8qpf09wdqg51"
         {
             var auth = new AuthenticateToken();
-            string token = "tn7zr48xbz4k3xseuq8qpf09wdqg51";
-            string dupa = auth.Authenticate(id);
-            return dupa;
+            auth.Authenticate(id);
+            return auth.Valid ? auth.UserName : "Access Denied.";
         }
 
         // POST api/<controller>

@@ -24,6 +24,20 @@
                                Text="Home" />
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
+
+            <!--  buildspage button  -->
+            <Controls:HamburgerButtonInfo x:Name="BuildsButton" PageParameter="0"
+                                          PageType="views:BuildsPage">
+                <Controls:HamburgerButtonInfo.NavigationTransitionInfo>
+                    <SuppressNavigationTransitionInfo />
+                </Controls:HamburgerButtonInfo.NavigationTransitionInfo>
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Width="48" Height="48"
+                                Symbol="Setting" />
+                    <TextBlock Margin="12,0,0,0" VerticalAlignment="Center"
+                               Text="Builds" />
+                </StackPanel>
+            </Controls:HamburgerButtonInfo>
         </Controls:HamburgerMenu.PrimaryButtons>
 
         <Controls:HamburgerMenu.SecondaryButtons>
@@ -41,7 +55,7 @@
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
         </Controls:HamburgerMenu.SecondaryButtons>
-
+        
     </Controls:HamburgerMenu>
 
 </Page>
