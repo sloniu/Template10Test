@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
@@ -11,21 +12,16 @@ namespace WebApi.Models
 
         public void AddBuild(User user, Build build)
         {
-            //try
-            {
-                db.Build.Add(build);
-                var u = new UserHasBuild()
-                {
-                    UserId = user.UserId
-                };
-                db.UserHasBuild.Add(u);
-                db.SaveChanges();
-            }
-            //catch (Exception e)
-            {
+            var a = db.Build.Count(b => b.PlayerName == build.PlayerName && b.MatchId == build.MatchId);
 
-            }
-            
+            if (a != 0) return;
+            db.Build.Add(build);
+            var u = new UserHasBuild()
+            {
+                UserId = user.UserId
+            };
+            db.UserHasBuild.Add(u);
+            db.SaveChanges();
         }
 
         public void AddUser(string userName)

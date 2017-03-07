@@ -189,6 +189,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>databaseModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="GetAllBuildsByUserName_Result.cs">
+      <DependentUpon>databaseModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

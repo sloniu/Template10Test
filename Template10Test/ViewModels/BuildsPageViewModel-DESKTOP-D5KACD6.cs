@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -44,27 +43,9 @@ namespace Template10Test.ViewModels
             }
         }
 
-//        private string _region;
-//
-//        public string Region
-//        {
-//            get { return _region; }
-//            set
-//            {
-//                _region = value;
-////                RaisePropertyChanged(() => Region);
-//            }
-//        }
+        private string _region;
 
-
-        public ObservableCollection<Region> RegionOptions { get; } = new ObservableCollection<Region>()
-        {
-            new Region() {Name = "North America", Value = "na"},
-            new Region() {Name = "Europe West", Value = "euw"}
-        };
-
-        private Region _region;
-        public Region Region
+        public string Region
         {
             get { return _region; }
             set
@@ -124,7 +105,7 @@ namespace Template10Test.ViewModels
         public void GotoAbout() =>
             NavigationService.Navigate(typeof(SettingsPage), 2);
 
-        public async void FetchBuilds()
+        public void FetchBuilds()
         {
             if (PlayerName != null)
             {
@@ -132,9 +113,7 @@ namespace Template10Test.ViewModels
                 {
                     try
                     {
-                        var o = w.GetStringAsync($"http://localhost:51568/api/test/{Region.Value}/{PlayerName}");
-                        await o;
-                        var json = o.Result;
+                        var json = w.GetStringAsync($"http://localhost:51568/api/test/{Region}/{PlayerName}").Result;
                         var build = JsonConvert.DeserializeObject<Build>(json);
                         Builds = build.MatchId.ToString();
                     }
@@ -160,7 +139,7 @@ namespace Template10Test.ViewModels
         }
 
 
-        public async void PushBuild()
+        public void PushBuild()
         {
                 using (var client = new HttpClient())
                 {
@@ -175,15 +154,19 @@ namespace Template10Test.ViewModels
                     {
                         var response =
                             client.PostAsync(
-                                $"http://localhost:51568/api/Builds/{LoginManager.Instance.Token}/{Region.Value}/{PlayerName}/{MatchId}",
-                                content);
-                        await response;
+                                $"http://localhost:51568/api/Builds/{LoginManager.Instance.Token}/{Region}/{PlayerName}/{MatchId}",
+                                content).Result;
                     }
                     catch (Exception e)
                     {
-
+                        //System.Console.WriteLine(e);
+                        //throw;
                     }
 
+                    //var responseString = await response.Content.ReadAsStringAsync();
+
+                    //var content = new StringContent(b.ToString(), Encoding.UTF8,"application/json");;
+                    //var response = await client.PostAsync("asdf", b);
                 }
         }
 

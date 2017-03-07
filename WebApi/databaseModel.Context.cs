@@ -12,6 +12,8 @@ namespace WebApi
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class twitch10dblocalhostEntities1 : DbContext
     {
@@ -28,5 +30,14 @@ namespace WebApi
         public virtual DbSet<Build> Build { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<UserHasBuild> UserHasBuild { get; set; }
+    
+        public virtual ObjectResult<GetAllBuildsByUserName_Result> GetAllBuildsByUserName(string name)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAllBuildsByUserName_Result>("GetAllBuildsByUserName", nameParameter);
+        }
     }
 }
