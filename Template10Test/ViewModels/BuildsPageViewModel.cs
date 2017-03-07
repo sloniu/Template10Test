@@ -9,6 +9,7 @@ using Windows.UI.Xaml.Navigation;
 using Newtonsoft.Json;
 using Template10.Mvvm;
 using Template10.Services.NavigationService;
+using Template10Test.Models;
 using Template10Test.Views;
 
 namespace Template10Test.ViewModels
@@ -66,6 +67,7 @@ namespace Template10Test.ViewModels
             }
         }
 
+
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode,
            IDictionary<string, object> suspensionState)
         {
@@ -109,11 +111,63 @@ namespace Template10Test.ViewModels
             {
                 using (var w = new HttpClient())
                 {
-                    var json = w.GetStringAsync($"http://twitch10webapitest.azurewebsites.net/api/test/{Region}/{PlayerName}" ).Result;
-                    List<Models.Riot.MatchById.Mastery> r = JsonConvert.DeserializeObject< List<Models.Riot.MatchById.Mastery> >(json);
-                    Builds = r.ToString();
+                    try
+                    {
+                        var json = w.GetStringAsync($"http://localhost:51568/api/test/{Region}/{PlayerName}").Result;
+                        var build = JsonConvert.DeserializeObject<Build>(json);
+                        Builds = build.MatchId.ToString();
+                    }
+                    catch (Exception e)
+                    {
+
+                    }
+                    
                 }
             }
+        }
+
+        private string _matchId;
+
+        public string MatchId
+        {
+            get { return _matchId; }
+            set
+            {
+                _matchId = value;
+                RaisePropertyChanged(() => MatchId);
+            }
+        }
+
+
+        public void PushBuild()
+        {
+                using (var client = new HttpClient())
+                {
+                    var values = new Dictionary<string, string>
+                    {
+                        { "region", "asdf" },
+                        { "summonerName", "asdf" }
+                    };
+
+                    var content = new FormUrlEncodedContent(values);
+                    try
+                    {
+                        var response =
+                            client.PostAsync(
+                                $"http://localhost:51568/api/Builds/{LoginManager.Instance.Token}/{Region}/{PlayerName}/{MatchId}",
+                                content).Result;
+                    }
+                    catch (Exception e)
+                    {
+                        //System.Console.WriteLine(e);
+                        //throw;
+                    }
+
+                    //var responseString = await response.Content.ReadAsStringAsync();
+
+                    //var content = new StringContent(b.ToString(), Encoding.UTF8,"application/json");;
+                    //var response = await client.PostAsync("asdf", b);
+                }
         }
 
         ApplicationDataContainer settings = ApplicationData.Current.LocalSettings;

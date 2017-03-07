@@ -356,7 +356,7 @@ namespace Template10Test.ViewModels
 
         public void Login()
         {
-            var manager = new LoginManager();
+            var manager = LoginManager.Instance;
             manager.Login();
         }
 

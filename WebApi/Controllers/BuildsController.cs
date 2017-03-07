@@ -72,15 +72,25 @@ namespace WebApi.Controllers
         }
 
         // POST: api/Builds
-        [ResponseType(typeof(Build))]
-        public IHttpActionResult PostBuild(Build build)
+        [Route("api/Builds/{token}/{region}/{playerName}/{matchId}")]
+        public IHttpActionResult PostBuild(string token, string region, string playerName, string matchId)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             var dbm = new DatabaseManager();
+            AuthenticateToken.Instance.Authenticate(token);
             var user = db.User.FirstOrDefault(u => u.UserName == AuthenticateToken.Instance.UserName);
+            if (user == null)
+            {
+                dbm.AddUser(AuthenticateToken.Instance.UserName);
+                user = db.User.FirstOrDefault(u => u.UserName == AuthenticateToken.Instance.UserName);
+            }
+            //var match = JsonParser.GetMatchById(region, matchId);
+            var build = JsonParser.GetBuild(region, playerName, Convert.ToInt64(matchId));
+
+
             dbm.AddBuild(user,build);
             //db.Build.Add(build);
             //db.SaveChanges();

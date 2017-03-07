@@ -10,8 +10,11 @@ using Template10Test.Models.Channel;
 
 namespace Template10Test.Models
 {
-    class LoginManager
+    public sealed class LoginManager
     {
+        private static volatile LoginManager instance;
+        private static object syncRoot = new Object();
+
         public string ClientId { get; set; } = "4hz5hgythniudwl0frrequyu6wxbv02";
         public string RedirectUri { get; set; } = "http://localhost";
         public string Scope { get; set; } = "user_read+channel_read";
@@ -20,6 +23,24 @@ namespace Template10Test.Models
         public string Result { get; set; } = "";
         public string Token { get; set; }
 
+        private LoginManager() { }
+
+        public static LoginManager Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    lock (syncRoot)
+                    {
+                        if (instance == null)
+                            instance = new LoginManager();
+                    }
+                }
+
+                return instance;
+            }
+        }
 
         public async Task Login()
         {

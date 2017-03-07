@@ -11,14 +11,21 @@ namespace WebApi.Models
 
         public void AddBuild(User user, Build build)
         {
-            db.Build.Add(build);
-            var u = new UserHasBuild()
+            //try
             {
-                UserId = user.UserId,
-                BuildId = build.BuildId
-            };
-            db.UserHasBuild.Add(u);
-            db.SaveChanges();
+                db.Build.Add(build);
+                var u = new UserHasBuild()
+                {
+                    UserId = user.UserId
+                };
+                db.UserHasBuild.Add(u);
+                db.SaveChanges();
+            }
+            //catch (Exception e)
+            {
+
+            }
+            
         }
 
         public void AddUser(string userName)

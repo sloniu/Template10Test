@@ -63,11 +63,32 @@
 
         </controls:PageHeader>
 
-        <StackPanel RelativePanel.Below="pageHeader">
-            <TextBox x:Name="PlayerNameTextBox" Text="{x:Bind ViewModel.PlayerName, Mode=TwoWay}" Width="300"></TextBox>
-            <TextBox x:Name="RegionTextBox" Text="{x:Bind ViewModel.Region, Mode=TwoWay}" Width="300"></TextBox>
-            <Button x:Name="FetchBuildsButton" Click="{x:Bind ViewModel.FetchBuilds}" Content="Get Masteries" Width="300"></Button>
-            <TextBlock x:Name="BuildsTextBlock" Text="{x:Bind ViewModel.Builds, Mode=TwoWay}" Width="300"></TextBlock>
+        <StackPanel x:Name="StackPanel1" RelativePanel.Below="pageHeader" Margin="30" Orientation="Horizontal">
+            <StackPanel>
+                <TextBlock Text="Summoner Name" Height="32"/>
+                <TextBlock Text="Region" Height="32"></TextBlock>
+                <TextBlock Text="" Height="32"></TextBlock>
+                <TextBlock Text="Match ID" Height="32"></TextBlock>
+            </StackPanel>
+            <StackPanel>
+                <TextBox x:Name="PlayerNameTextBox" Text="{x:Bind ViewModel.PlayerName, Mode=TwoWay}" ></TextBox>
+                <TextBox x:Name="RegionTextBox" Text="{x:Bind ViewModel.Region, Mode=TwoWay}" ></TextBox>
+                <Button x:Name="FetchBuildsButton" Click="{x:Bind ViewModel.FetchBuilds}" Content="Get Last Match ID" ></Button>
+                <TextBox x:Name="BuildsTextBlock" Text="{x:Bind ViewModel.Builds, Mode=TwoWay}" ></TextBox>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel RelativePanel.Below="StackPanel1" Margin="30" Orientation="Horizontal">
+            <StackPanel>
+                <TextBlock Text="Summoner Name" Height="32"></TextBlock>
+                <TextBlock Text="Region" Height="32"></TextBlock>
+                <TextBlock Text="Match ID" Height="32"></TextBlock>
+            </StackPanel>
+            <StackPanel>
+                <TextBox x:Name="PlayerNameTextBox2" Text="{x:Bind ViewModel.PlayerName, Mode=TwoWay}" Width="300"></TextBox>
+                <TextBox x:Name="RegionTextBox2" Text="{x:Bind ViewModel.Region, Mode=TwoWay}" Width="300"></TextBox>
+                <TextBox x:Name="MatchIdTextBox" Text="{x:Bind ViewModel.MatchId, Mode=TwoWay}" Width="300"></TextBox>
+                <Button Click="{x:Bind ViewModel.PushBuild}" Content="Push build"></Button>
+            </StackPanel>
         </StackPanel>
 
 

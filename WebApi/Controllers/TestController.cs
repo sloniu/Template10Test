@@ -14,13 +14,13 @@ namespace WebApi.Controllers
     {
         // GET api/<controller>
         [Route("api/Test/{region}/{name}")]
-        public List<Mastery> Get(string region, string name)
+        public Build Get(string region, string name)
         {
             var parser = new JsonParser();
 
             //return parser.GetMatchById("na", "lose is improve");
             //return parser.GetStats("na", "lose is improve");
-            return parser.GetMasteries(region, name);
+            return parser.GetLastBuild(region,name);
         }
 
         // GET api/<controller>/5
@@ -30,7 +30,7 @@ namespace WebApi.Controllers
             //var auth = new AuthenticateToken();
             //string token = "tn7zr48xbz4k3xseuq8qpf09wdqg51";
             //string dupa = auth.Authenticate(token);
-            return "dupa";
+            return "asdf";
         }
 
         // POST api/<controller>
