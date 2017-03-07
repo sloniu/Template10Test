@@ -23,7 +23,7 @@ namespace WebApi.Models
                 };
                 var json =
                     w.GetStringAsync(
-                            $"https://na.api.pvp.net/api/lol/{region}/v1.4/summoner/by-name/{summonerName}?api_key=RGAPI-a231c9d7-98c8-436a-b77b-49bbec82462c")
+                            $"https://{region}.api.pvp.net/api/lol/{region}/v1.4/summoner/by-name/{summonerName}?api_key=RGAPI-a231c9d7-98c8-436a-b77b-49bbec82462c")
                         .Result;
                 return JsonConvert.DeserializeObject<T>(json, settings);
             }
@@ -40,11 +40,13 @@ namespace WebApi.Models
             {
                 var json =
                     w.GetStringAsync(
-                            $"https://na.api.pvp.net/api/lol/{region}/v2.2/matchlist/by-summoner/{GetSummonerId(region, summonerName)}?api_key=RGAPI-a231c9d7-98c8-436a-b77b-49bbec82462c")
+                            $"https://{region}.api.pvp.net/api/lol/{region}/v2.2/matchlist/by-summoner/{GetSummonerId(region, summonerName)}?api_key=RGAPI-a231c9d7-98c8-436a-b77b-49bbec82462c")
                         .Result;
                 return JsonConvert.DeserializeObject<MatchListBySummonerId.RootObject>(json).Matches.First().MatchId;
             }
         }
+
+        
 
         public MatchById.RootObject GetMatch(string region, string summonerName)
         {
@@ -52,9 +54,21 @@ namespace WebApi.Models
             {
                 var json =
                     w.GetStringAsync(
-                            $"https://na.api.pvp.net/api/lol/{region}/v2.2/match/{GetMatchId(region, summonerName)}?api_key=RGAPI-a231c9d7-98c8-436a-b77b-49bbec82462c")
+                            $"https://{region}.api.pvp.net/api/lol/{region}/v2.2/match/{GetMatchId(region, summonerName)}?api_key=RGAPI-a231c9d7-98c8-436a-b77b-49bbec82462c")
                         .Result;
 
+                return JsonConvert.DeserializeObject<MatchById.RootObject>(json);
+            }
+        }
+
+        public static MatchById.RootObject GetMatchById(string region, long matchId)
+        {
+            using (var w = new HttpClient())
+            {
+                var json =
+                    w.GetStringAsync(
+                            $"https://{region}.api.pvp.net/api/lol/{region}/v2.2/match/{matchId}?api_key=RGAPI-a231c9d7-98c8-436a-b77b-49bbec82462c")
+                        .Result;
                 return JsonConvert.DeserializeObject<MatchById.RootObject>(json);
             }
         }
@@ -84,6 +98,55 @@ namespace WebApi.Models
         public List<MatchById.Rune> GetRunes(string region, string summonerName)
         {
             return GetPlayer(region, summonerName).Runes;
+        }
+
+        public Build GetLastBuild(string region, string summonerName)
+        {
+            var match = GetMatch(region, summonerName);
+            var player = GetPlayer(region, summonerName);
+            var stats = GetStats(region, summonerName);
+
+            var build = new Build()
+            {
+                BuildId = 0,
+                ChampionId = player.ChampionId,
+                Item1Id = stats.Item1,
+                Item2Id = stats.Item2,
+                Item3Id = stats.Item3,
+                Item4Id = stats.Item4,
+                Item5Id = stats.Item5,
+                Item6Id = stats.Item6,
+                MatchId = match.MatchId,
+                PlayerName = summonerName,
+                Spell1Id = player.Spell1Id,
+                Spell2Id = player.Spell2Id
+            };
+            return build;
+        }
+
+        public static Build GetBuild(string region, string summonerName, long matchid)
+        {
+            var match = GetMatchById(region, matchid);
+            var playerId = match.ParticipantIdentities.Find(x => x.Player.SummonerName.ToLower() == summonerName);
+            var player = match.Participants.Find(y => y.ParticipantId == playerId.ParticipantId);
+            var stats = player.Stats;
+
+            var build = new Build()
+            {
+                BuildId = 0,
+                ChampionId = player.ChampionId,
+                Item1Id = stats.Item1,
+                Item2Id = stats.Item2,
+                Item3Id = stats.Item3,
+                Item4Id = stats.Item4,
+                Item5Id = stats.Item5,
+                Item6Id = stats.Item6,
+                MatchId = match.MatchId,
+                PlayerName = summonerName,
+                Spell1Id = player.Spell1Id,
+                Spell2Id = player.Spell2Id
+            };
+            return build;
         }
 
         private class CustomNamesContractResolver : DefaultContractResolver
