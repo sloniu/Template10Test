@@ -132,7 +132,7 @@ namespace Template10Test.ViewModels
                 {
                     try
                     {
-                        var o = w.GetStringAsync($"http://localhost:51568/api/test/{Region.Value}/{PlayerName}");
+                        var o = w.GetStringAsync($"http://localhost:51568/api/builds/{Region.Value}/{PlayerName}");
                         await o;
                         var json = o.Result;
                         var build = JsonConvert.DeserializeObject<Build>(json);

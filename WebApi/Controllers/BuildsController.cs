@@ -23,6 +23,13 @@ namespace WebApi.Controllers
             return db.Build;
         }
 
+        [Route("api/Builds/{region}/{name}")]
+        public Build Get(string region, string name)
+        {
+            var parser = new JsonParser();
+            return parser.GetLastBuild(region, name);
+        }
+
         // GET: api/Builds/5
         [ResponseType(typeof(Build))]
         public IHttpActionResult GetBuild(int id)
