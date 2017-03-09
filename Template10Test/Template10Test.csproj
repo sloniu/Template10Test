@@ -224,12 +224,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\AppNotifications\Tasks\Tasks.csproj">
-      <Project>{92d2a0a2-04c2-4369-8a68-cb33893a50f8}</Project>
-      <Name>Tasks</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
