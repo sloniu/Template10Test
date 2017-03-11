@@ -129,11 +129,11 @@
     <Compile Include="Models\Riot\MatchListBySummonerId\RootObject.cs" />
     <Compile Include="Models\Riot\SummonerByName\RootObject.cs" />
     <Compile Include="Models\Riot\SummonerByName\Summoner.cs" />
-    <Compile Include="Models\User\Channel.cs" />
-    <Compile Include="Models\User\Follow.cs" />
-    <Compile Include="Models\User\Links.cs" />
-    <Compile Include="Models\User\Links2.cs" />
-    <Compile Include="Models\User\Links3.cs" />
+    <Compile Include="Models\TwitchApiClient.cs" />
+    <Compile Include="Models\Users\Channel.cs" />
+    <Compile Include="Models\Users\Follow.cs" />
+    <Compile Include="Models\Users\RootObject.cs" />
+    <Compile Include="Models\User\Notifications.cs" />
     <Compile Include="Models\User\RootObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\SettingsServices\SettingsService.cs" />
@@ -225,7 +225,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\AppNotifications\Tasks\Tasks.csproj">
+    <ProjectReference Include="..\Tasks\Tasks.csproj">
       <Project>{92d2a0a2-04c2-4369-8a68-cb33893a50f8}</Project>
       <Name>Tasks</Name>
     </ProjectReference>

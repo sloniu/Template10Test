@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template10Test", "Template10Test\Template10Test.csproj", "{305789B6-54C2-4D9E-8C3B-47425C5A00C4}"
 EndProject
@@ -22,6 +22,8 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{305789B6-54C2-4D9E-8C3B-47425C5A00C4}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{305789B6-54C2-4D9E-8C3B-47425C5A00C4}.Debug|Any CPU.Build.0 = Debug|x86
+		{305789B6-54C2-4D9E-8C3B-47425C5A00C4}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{305789B6-54C2-4D9E-8C3B-47425C5A00C4}.Debug|ARM.ActiveCfg = Debug|ARM
 		{305789B6-54C2-4D9E-8C3B-47425C5A00C4}.Debug|ARM.Build.0 = Debug|ARM
 		{305789B6-54C2-4D9E-8C3B-47425C5A00C4}.Debug|ARM.Deploy.0 = Debug|ARM

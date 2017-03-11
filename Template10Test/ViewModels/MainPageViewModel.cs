@@ -152,31 +152,43 @@ namespace Template10Test.ViewModels
             {
                 if (IsLoading) return;
                 IsLoading = true;
+                int userId;
                 using (var w = new HttpClient())
                 {
-                    var json = w.GetStringAsync("https://api.twitch.tv/kraken/users/sloniu6/follows/channels" + "?client_id=4hz5hgythniudwl0frrequyu6wxbv02").Result;
+                    w.DefaultRequestHeaders.Add("Accept", "application/vnd.twitchtv.v5+json");
+                    w.DefaultRequestHeaders.Add("Client-ID", "4hz5hgythniudwl0frrequyu6wxbv02");
+                    w.DefaultRequestHeaders.Add("Authorization", "OAuth " + LoginManager.Instance.Token);
+                    var json = await w.GetStringAsync("https://api.twitch.tv/kraken/user");
                     var r = JsonConvert.DeserializeObject<Models.User.RootObject>(json);
+                    userId = r._Id;
+                }
+                using (var w = new HttpClient())
+                {
+                    w.DefaultRequestHeaders.Add("Accept", "application/vnd.twitchtv.v5+json");
+                    w.DefaultRequestHeaders.Add("Client-ID", "4hz5hgythniudwl0frrequyu6wxbv02");
+                    var json = w.GetStringAsync($"https://api.twitch.tv/kraken/users/{userId}/follows/channels").Result;
+                    var r = JsonConvert.DeserializeObject<Models.Users.RootObject>(json);
                     var follows = r.follows;
                     foreach (var follow in follows)
                     {
                         var temp = !(settings.Values["streams"] is Array)
                             ? new List<string>()
-                            : ((Array) settings.Values["streams"]).OfType<string>().ToList();
-                        if (temp.Contains(follow.channel.name)) continue;
+                            : ((Array)settings.Values["streams"]).OfType<string>().ToList();
+                        if (temp.Contains(follow.Channel.name)) continue;
                         var obj = new Streamer()
                         {
-                            DisplayName = follow.channel.display_name,
-                            Name = follow.channel.name,
-                            Logo = (string) follow.channel.logo,
-                            Link = follow.channel._links.self
+                            DisplayName = follow.Channel.display_name,
+                            Name = follow.Channel.name,
+                            Logo = (string)follow.Channel.logo,
+                            Link = follow.Channel.url
                         };
                         Streamers.Add(obj);
-                        temp.Add(follow.channel.name);
+                        temp.Add(follow.Channel.name);
                         //Data.Streams = temp.ToArray();
                         settings.Values["streams"] = temp.ToArray();
-                        settings.Values[follow.channel.name + "previous"] = "Offline";
-                        settings.Values[follow.channel.name + "current"] = "Offline";
-                        settings.Values[follow.channel.name + "changed"] = false;
+                        settings.Values[follow.Channel.name + "previous"] = "Offline";
+                        settings.Values[follow.Channel.name + "current"] = "Offline";
+                        settings.Values[follow.Channel.name + "changed"] = false;
                         Debug.WriteLine("\nstreamer added\n");
                         SortStreamers();
                     }
