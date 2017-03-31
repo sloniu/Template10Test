@@ -31,13 +31,13 @@ namespace WebApi
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<UserHasBuild> UserHasBuild { get; set; }
     
-        public virtual ObjectResult<GetAllBuildsByUserName_Result> GetAllBuildsByUserName(string name)
-        {
-            var nameParameter = name != null ?
-                new ObjectParameter("name", name) :
-                new ObjectParameter("name", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAllBuildsByUserName_Result>("GetAllBuildsByUserName", nameParameter);
-        }
+//        public virtual ObjectResult<GetAllBuildsByUserName_Result> GetAllBuildsByUserName(string name)
+//        {
+//            var nameParameter = name != null ?
+//                new ObjectParameter("name", name) :
+//                new ObjectParameter("name", typeof(string));
+//    
+//            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAllBuildsByUserName_Result>("GetAllBuildsByUserName", nameParameter);
+//        }
     }
 }

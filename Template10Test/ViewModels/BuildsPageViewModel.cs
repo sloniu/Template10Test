@@ -17,21 +17,7 @@ namespace Template10Test.ViewModels
 {
     public class BuildsPageViewModel : ViewModelBase
     {
-        public BuildsPageViewModel()
-        {
-            if (Windows.ApplicationModel.DesignMode.DesignModeEnabled)
-            {
-                Value = "Designtime value";
-            }
-        }
-
-        string _Value = "Gas";
-
-        public string Value
-        {
-            get { return _Value; }
-            set { Set(ref _Value, value); }
-        }
+        private const string Url = "http://twitch10webapitest.azurewebsites.net";
 
         private string _playerName;
         public string PlayerName
@@ -43,19 +29,6 @@ namespace Template10Test.ViewModels
                 RaisePropertyChanged(() => PlayerName);
             }
         }
-
-//        private string _region;
-//
-//        public string Region
-//        {
-//            get { return _region; }
-//            set
-//            {
-//                _region = value;
-////                RaisePropertyChanged(() => Region);
-//            }
-//        }
-
 
         public ObservableCollection<Region> RegionOptions { get; } = new ObservableCollection<Region>()
         {
@@ -86,13 +59,25 @@ namespace Template10Test.ViewModels
             }
         }
 
+        private Build _build;
+
+        public Build Build
+        {
+            get { return _build; }
+            set
+            {
+                _build = value;
+                RaisePropertyChanged(() => Build);
+            }
+        }
+
+        #region OnNavigate
 
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode,
            IDictionary<string, object> suspensionState)
         {
             if (suspensionState.Any())
             {
-                Value = suspensionState[nameof(Value)]?.ToString();
             }
             await Task.CompletedTask;
         }
@@ -101,7 +86,6 @@ namespace Template10Test.ViewModels
         {
             if (suspending)
             {
-                suspensionState[nameof(Value)] = Value;
             }
             await Task.CompletedTask;
         }
@@ -112,8 +96,12 @@ namespace Template10Test.ViewModels
             await Task.CompletedTask;
         }
 
+        #endregion
+
+        #region Goto
+
         public void GotoDetailsPage() =>
-            NavigationService.Navigate(typeof(DetailPage), Value);
+            NavigationService.Navigate(typeof(DetailPage));
 
         public void GotoSettings() =>
             NavigationService.Navigate(typeof(SettingsPage), 0);
@@ -124,6 +112,8 @@ namespace Template10Test.ViewModels
         public void GotoAbout() =>
             NavigationService.Navigate(typeof(SettingsPage), 2);
 
+        #endregion
+
         public async void FetchBuilds()
         {
             if (PlayerName != null)
@@ -132,11 +122,12 @@ namespace Template10Test.ViewModels
                 {
                     try
                     {
-                        var o = w.GetStringAsync($"http://localhost:51568/api/builds/{Region.Value}/{PlayerName}");
+                        var o = w.GetStringAsync($"{Url}/api/builds/{Region.Value}/{PlayerName}");
                         await o;
                         var json = o.Result;
                         var build = JsonConvert.DeserializeObject<Build>(json);
                         Builds = build.MatchId.ToString();
+                        Build = build;
                     }
                     catch (Exception e)
                     {
@@ -166,8 +157,8 @@ namespace Template10Test.ViewModels
                 {
                     var values = new Dictionary<string, string>
                     {
-                        { "region", "asdf" },
-                        { "summonerName", "asdf" }
+                        { "region", "" },
+                        { "summonerName", "" }
                     };
 
                     var content = new FormUrlEncodedContent(values);
@@ -175,7 +166,7 @@ namespace Template10Test.ViewModels
                     {
                         var response =
                             client.PostAsync(
-                                $"http://localhost:51568/api/Builds/{LoginManager.Instance.Token}/{Region.Value}/{PlayerName}/{MatchId}",
+                                $"{Url}/api/Builds/{LoginManager.Instance.Token}/{Region.Value}/{PlayerName}/{MatchId}",
                                 content);
                         await response;
                     }
@@ -186,7 +177,5 @@ namespace Template10Test.ViewModels
 
                 }
         }
-
-        ApplicationDataContainer settings = ApplicationData.Current.LocalSettings;
     }
 }

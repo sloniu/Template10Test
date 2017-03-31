@@ -12,21 +12,32 @@ namespace WebApi
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
-    public partial class twitch10dblocalhostEntities : DbContext
+    public partial class twitch10dbEntities1 : DbContext
     {
-        public twitch10dblocalhostEntities()
-            : base("name=twitch10dblocalhostEntities1")
+        public twitch10dbEntities1()
+            : base("name=twitch10dbEntities1")
         {
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-
+    
         public virtual DbSet<Build> Build { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<UserHasBuild> UserHasBuild { get; set; }
+    
+        public virtual ObjectResult<GetAllBuildsByUserName_Result> GetAllBuildsByUserName(string name)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAllBuildsByUserName_Result>("GetAllBuildsByUserName", nameParameter);
+        }
     }
 }

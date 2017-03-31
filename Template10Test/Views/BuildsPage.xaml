@@ -72,18 +72,12 @@
             </StackPanel>
             <StackPanel>
                 <TextBox x:Name="PlayerNameTextBox" Text="{x:Bind ViewModel.PlayerName, Mode=TwoWay}" ></TextBox>
-<!--                <TextBox x:Name="RegionTextBox" Text="{x:Bind ViewModel.Region, Mode=TwoWay}" ></TextBox>-->
                 <ComboBox x:Name="RegionComboBox" DisplayMemberPath="Name"  ItemsSource="{x:Bind ViewModel.RegionOptions}"  SelectedItem="{Binding Region, Mode=TwoWay}"/>
                 <Button x:Name="FetchBuildsButton" Click="{x:Bind ViewModel.FetchBuilds}" Content="Get Last Match ID" ></Button>
                 <TextBox x:Name="BuildsTextBlock" Text="{x:Bind ViewModel.Builds, Mode=TwoWay}" ></TextBox>
             </StackPanel>
-            <StackPanel>
-                <TextBlock Text="// Przykładowe dane: Name: 'lose is improve' Region: 'North America'" Foreground="Green" Height="32"/>
-                <TextBlock Text="// Przykładowe dane: Name: 'sloniu666' Region: 'Europe West'" Foreground="Green" Height="32"/>
-                <TextBlock Text="// Po wciśnięciu przycisku należy poczekać (leci asynchronicznie by nie blokować UI)" Foreground="Green" Height="32"/>
-            </StackPanel>
         </StackPanel>
-        <StackPanel RelativePanel.Below="StackPanel1" Margin="30" Orientation="Horizontal">
+        <StackPanel x:Name="StackPanel2" RelativePanel.Below="StackPanel1" Margin="30" Orientation="Horizontal">
             <StackPanel>
                 <TextBlock Text="Summoner Name" Height="32"></TextBlock>
                 <TextBlock Text="Region" Height="32"></TextBlock>
@@ -91,29 +85,27 @@
             </StackPanel>
             <StackPanel>
                 <TextBox x:Name="PlayerNameTextBox2" Text="{x:Bind ViewModel.PlayerName, Mode=TwoWay}" Width="300"></TextBox>
-<!--                <TextBox x:Name="RegionTextBox2" Text="{x:Bind ViewModel.Region, Mode=TwoWay}" Width="300"></TextBox>-->
                 <ComboBox x:Name="RegionComboBox2" DisplayMemberPath="Name"  ItemsSource="{x:Bind ViewModel.RegionOptions}"  SelectedItem="{Binding Region, Mode=TwoWay}"/>
-
                 <TextBox x:Name="MatchIdTextBox" Text="{x:Bind ViewModel.MatchId, Mode=TwoWay}" Width="300"></TextBox>
                 <Button Click="{x:Bind ViewModel.PushBuild}" Content="Push build"></Button>
             </StackPanel>
-            <StackPanel>
-                <TextBlock Text="// Dane przepisują się same (dla testów)" Foreground="Green" Height="32"/>
-                <TextBlock Text="" Height="32"></TextBlock>
-                <TextBlock Text="// Proszę skopiować dane z pola Match ID tutaj" Foreground="Green" Height="32"/>
-                <TextBlock Text="// Po wciśnięciu przycisku należy poczekać (leci asynchronicznie by nie blokować UI)" Foreground="Green" Height="32"/>
-                <TextBlock Text="// Dane dodadzą się do DB jeżeli jesteśmy zalogowani" Foreground="Green" Height="32"/>
-                <TextBlock Text="// Dane do logowania:" Foreground="Green" Height="32"/>
-                <TextBlock Text="// Login: pipdprojekt Hasło: Projekt123" Foreground="Green" Height="32"/>
-                <TextBlock Text="// Przycisk Login znajduje się na stronie głównej (na dole)" Foreground="Green" Height="32"/>
-
-            </StackPanel>
+            
         </StackPanel>
-
-
+        <StackPanel RelativePanel.Below="StackPanel2">
+            <TextBlock Text="{x:Bind ViewModel.Build.BuildId, Mode=TwoWay}"/>
+            <TextBlock Text="{x:Bind ViewModel.Build.ChampionId, Mode=TwoWay}"/>
+            <TextBlock Text="{x:Bind ViewModel.Build.Item1Id, Mode=TwoWay}"/>
+            <TextBlock Text="{x:Bind ViewModel.Build.Item2Id, Mode=TwoWay}"/>
+            <TextBlock Text="{x:Bind ViewModel.Build.Item3Id, Mode=TwoWay}"/>
+            <TextBlock Text="{x:Bind ViewModel.Build.Item4Id, Mode=TwoWay}"/>
+            <TextBlock Text="{x:Bind ViewModel.Build.Item5Id, Mode=TwoWay}"/>
+            <TextBlock Text="{x:Bind ViewModel.Build.Item6Id, Mode=TwoWay}"/>
+            <TextBlock Text="{x:Bind ViewModel.Build.MatchId, Mode=TwoWay}"/>
+            <TextBlock Text="{x:Bind ViewModel.Build.PlayerName, Mode=TwoWay}"/>
+            <TextBlock Text="{x:Bind ViewModel.Build.Spell1Id, Mode=TwoWay}"/>
+            <TextBlock Text="{x:Bind ViewModel.Build.Spell2Id, Mode=TwoWay}"/>
+        </StackPanel>
     </RelativePanel>
 
 </Page>
-
-
-
+    

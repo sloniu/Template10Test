@@ -366,10 +366,11 @@ namespace Template10Test.ViewModels
             return true;
         }
 
-        public void Login()
+        public async void Login()
         {
             var manager = LoginManager.Instance;
-            manager.Login();
+            await manager.Login();
+            LoadStreamers();
         }
 
         public void RefreshStreamers()

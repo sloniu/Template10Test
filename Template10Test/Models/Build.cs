@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Template10Test.Models
 {
-    class Build
+    public class Build
     {
         public int BuildId { get; set; }
         public string PlayerName { get; set; }

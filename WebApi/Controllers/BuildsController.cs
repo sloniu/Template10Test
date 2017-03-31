@@ -15,7 +15,8 @@ namespace WebApi.Controllers
 {
     public class BuildsController : ApiController
     {
-        private twitch10dblocalhostEntities db = new twitch10dblocalhostEntities();
+                private twitch10dbEntities1 db = new twitch10dbEntities1(); 
+//        private twitch10dblocalhostEntities1 db = new twitch10dblocalhostEntities1();
 
         // GET: api/Builds
         public IQueryable<Build> GetBuild()

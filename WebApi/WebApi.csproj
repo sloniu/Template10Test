@@ -34,6 +34,31 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="localdb-Deployment" Order="1" Enabled="False">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=PROPC%3bInitial Catalog=twitch10dblocalhost%3bIntegrated Security=True%3bPooling=False" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\localdb-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+        <ObjectGroup Name="twitch10dblocalhostEntities-Deployment" Order="2" Enabled="False">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=PROPC%3bInitial Catalog=twitch10dblocalhost%3bIntegrated Security=True%3bPooling=False%3bApplication Name=EntityFramework" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\twitch10dblocalhostEntities-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+        <ObjectGroup Name="twitch10dblocalhostEntities1-Deployment" Order="3">
+          <Destination Path="Data Source=twitch10.database.windows.net%3bInitial Catalog=twitch10db%3bUser ID=twitch10admin%3bPassword=12GL34a56DOS78" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=PROPC%3bInitial Catalog=twitch10dblocalhost%3bIntegrated Security=True%3bPooling=False%3bApplication Name=EntityFramework" ScriptSchema="True" ScriptData="True" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\twitch10dblocalhostEntities1-Deployment_SchemaAndData.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -167,7 +192,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Build.cs">
-      <DependentUpon>databaseModel.tt</DependentUpon>
+      <DependentUpon>twitch10azureModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\BuildsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -188,7 +213,7 @@
       <DependentUpon>databaseModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="GetAllBuildsByUserName_Result.cs">
-      <DependentUpon>databaseModel.tt</DependentUpon>
+      <DependentUpon>twitch10azureModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -223,26 +248,26 @@
     <Compile Include="Models\Token\Token.cs" />
     <Compile Include="Models\Token\_Links.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="twitch10dbModel.Context.cs">
+    <Compile Include="twitch10azureModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>twitch10dbModel.Context.tt</DependentUpon>
+      <DependentUpon>twitch10azureModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="twitch10dbModel.cs">
+    <Compile Include="twitch10azureModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>twitch10dbModel.tt</DependentUpon>
+      <DependentUpon>twitch10azureModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="twitch10dbModel.Designer.cs">
+    <Compile Include="twitch10azureModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>twitch10dbModel.edmx</DependentUpon>
+      <DependentUpon>twitch10azureModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
-      <DependentUpon>databaseModel.tt</DependentUpon>
+      <DependentUpon>twitch10azureModel.tt</DependentUpon>
     </Compile>
     <Compile Include="UserHasBuild.cs">
-      <DependentUpon>databaseModel.tt</DependentUpon>
+      <DependentUpon>twitch10azureModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -297,15 +322,15 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="twitch10dbModel.Context.tt">
+    <Content Include="twitch10azureModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>twitch10dbModel.Context.cs</LastGenOutput>
-      <DependentUpon>twitch10dbModel.edmx</DependentUpon>
+      <DependentUpon>twitch10azureModel.edmx</DependentUpon>
+      <LastGenOutput>twitch10azureModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="twitch10dbModel.tt">
+    <Content Include="twitch10azureModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>twitch10dbModel.edmx</DependentUpon>
-      <LastGenOutput>twitch10dbModel.cs</LastGenOutput>
+      <DependentUpon>twitch10azureModel.edmx</DependentUpon>
+      <LastGenOutput>twitch10azureModel.cs</LastGenOutput>
     </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -322,12 +347,12 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <EntityDeploy Include="twitch10dbModel.edmx">
+    <EntityDeploy Include="twitch10azureModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>twitch10dbModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>twitch10azureModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="twitch10dbModel.edmx.diagram">
-      <DependentUpon>twitch10dbModel.edmx</DependentUpon>
+    <Content Include="twitch10azureModel.edmx.diagram">
+      <DependentUpon>twitch10azureModel.edmx</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>
