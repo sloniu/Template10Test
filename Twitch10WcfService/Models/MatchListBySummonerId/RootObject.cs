@@ -4,9 +4,9 @@ namespace Twitch10WcfService.Models.MatchListBySummonerId
 {
     public class RootObject
     {
-        public List<Match> Matches { get; set; }
-        public int StartIndex { get; set; }
-        public int EndIndex { get; set; }
-        public int TotalGames { get; set; }
+        public List<Match> matches { get; set; }
+        public int startIndex { get; set; }
+        public int endIndex { get; set; }
+        public int totalGames { get; set; }
     }
 }

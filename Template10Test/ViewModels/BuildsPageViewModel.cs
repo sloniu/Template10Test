@@ -11,13 +11,16 @@ using Newtonsoft.Json;
 using Template10.Mvvm;
 using Template10.Services.NavigationService;
 using Template10Test.Models;
+using Template10Test.Twitch10ServiceReference;
 using Template10Test.Views;
+using Build = Template10Test.Models.Build;
 
 namespace Template10Test.ViewModels
 {
     public class BuildsPageViewModel : ViewModelBase
     {
         private const string Url = "http://twitch10webapitest.azurewebsites.net";
+        private Service1Client _client = new Service1Client();
 
         private string _playerName;
         public string PlayerName
