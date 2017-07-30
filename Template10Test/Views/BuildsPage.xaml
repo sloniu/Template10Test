@@ -52,7 +52,7 @@
 
         <controls:PageHeader x:Name="pageHeader" RelativePanel.AlignLeftWithPanel="True"
                              RelativePanel.AlignRightWithPanel="True"
-                             RelativePanel.AlignTopWithPanel="True" Text="Streams you follow">
+                             RelativePanel.AlignTopWithPanel="True" Text="Build browser">
 
             <!--  secondary commands  -->
             <controls:PageHeader.SecondaryCommands>
@@ -77,7 +77,12 @@
                 <TextBox x:Name="BuildsTextBlock" Text="{x:Bind ViewModel.Builds, Mode=TwoWay}" ></TextBox>
             </StackPanel>
         </StackPanel>
-        <StackPanel x:Name="StackPanel2" RelativePanel.Below="StackPanel1" Margin="30" Orientation="Horizontal">
+        <StackPanel x:Name="StackPanelMessage" RelativePanel.Below="StackPanel1" Margin="30" Orientation="Horizontal">
+            <Border Background="Red">
+                <TextBlock Text="{x:Bind ViewModel.WarningMessage, Mode=TwoWay}"></TextBlock>
+            </Border>
+        </StackPanel>
+        <StackPanel x:Name="StackPanel2" RelativePanel.Below="StackPanelMessage" Margin="30" Orientation="Horizontal">
             <StackPanel>
                 <TextBlock Text="Summoner Name" Height="32"></TextBlock>
                 <TextBlock Text="Region" Height="32"></TextBlock>
@@ -89,21 +94,103 @@
                 <TextBox x:Name="MatchIdTextBox" Text="{x:Bind ViewModel.MatchId, Mode=TwoWay}" Width="300"></TextBox>
                 <Button Click="{x:Bind ViewModel.PushBuild}" Content="Push build"></Button>
             </StackPanel>
-            
+
         </StackPanel>
-        <StackPanel RelativePanel.Below="StackPanel2">
-            <TextBlock Text="{x:Bind ViewModel.Build.BuildId, Mode=TwoWay}"/>
-            <TextBlock Text="{x:Bind ViewModel.Build.ChampionId, Mode=TwoWay}"/>
-            <TextBlock Text="{x:Bind ViewModel.Build.Item1Id, Mode=TwoWay}"/>
-            <TextBlock Text="{x:Bind ViewModel.Build.Item2Id, Mode=TwoWay}"/>
-            <TextBlock Text="{x:Bind ViewModel.Build.Item3Id, Mode=TwoWay}"/>
-            <TextBlock Text="{x:Bind ViewModel.Build.Item4Id, Mode=TwoWay}"/>
-            <TextBlock Text="{x:Bind ViewModel.Build.Item5Id, Mode=TwoWay}"/>
-            <TextBlock Text="{x:Bind ViewModel.Build.Item6Id, Mode=TwoWay}"/>
-            <TextBlock Text="{x:Bind ViewModel.Build.MatchId, Mode=TwoWay}"/>
-            <TextBlock Text="{x:Bind ViewModel.Build.PlayerName, Mode=TwoWay}"/>
-            <TextBlock Text="{x:Bind ViewModel.Build.Spell1Id, Mode=TwoWay}"/>
-            <TextBlock Text="{x:Bind ViewModel.Build.Spell2Id, Mode=TwoWay}"/>
+        <StackPanel RelativePanel.Below="StackPanel2" Orientation="Horizontal" x:Name="StackPanel4">
+            <ListView ItemsSource="{x:Bind ViewModel.CurrentBuilds}" SelectedItem="{Binding SelectedCurrentBuild, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Width="50" Height="50">
+                                    <Image.Source>
+                                        <BitmapImage UriSource="{Binding ChampionUrl, Mode=TwoWay}"></BitmapImage>
+                                    </Image.Source>
+                                </Image>
+                                <Image Width="50" Height="50">
+                                    <Image.Source>
+                                        <BitmapImage UriSource="{Binding Item1Url, Mode=TwoWay}"></BitmapImage>
+                                    </Image.Source>
+                                </Image>
+                                <Image Width="50" Height="50">
+                                    <Image.Source>
+                                        <BitmapImage UriSource="{Binding Item2Url, Mode=TwoWay}"></BitmapImage>
+                                    </Image.Source>
+                                </Image>
+                                <Image Width="50" Height="50">
+                                    <Image.Source>
+                                        <BitmapImage UriSource="{Binding Item3Url, Mode=TwoWay}"></BitmapImage>
+                                    </Image.Source>
+                                </Image>
+                                <Image Width="50" Height="50">
+                                    <Image.Source>
+                                        <BitmapImage UriSource="{Binding Item4Url, Mode=TwoWay}"></BitmapImage>
+                                    </Image.Source>
+                                </Image>
+                                <Image Width="50" Height="50">
+                                    <Image.Source>
+                                        <BitmapImage UriSource="{Binding Item5Url, Mode=TwoWay}"></BitmapImage>
+                                    </Image.Source>
+                                </Image>
+                                <Image Width="50" Height="50">
+                                    <Image.Source>
+                                        <BitmapImage UriSource="{Binding Item6Url, Mode=TwoWay}"></BitmapImage>
+                                    </Image.Source>
+                                </Image>
+
+                            </StackPanel>
+                        </StackPanel>
+                        
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Content="Add selected build" Click="{x:Bind ViewModel.AddBuild}"></Button>
+        </StackPanel>
+        <StackPanel RelativePanel.Below="StackPanel4">
+            <Button Click="{x:Bind ViewModel.GetUsersBuilds}" Content="Get my builds"></Button>
+            <GridView ItemsSource="{x:Bind ViewModel.BuildsList}">
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="50" Height="50">
+                                <Image.Source>
+                                    <BitmapImage UriSource="{Binding ChampionUrl}"></BitmapImage>
+                                </Image.Source>
+                            </Image>
+                            <Image Width="50" Height="50">
+                                <Image.Source>
+                                    <BitmapImage UriSource="{Binding Item1Url}"></BitmapImage>
+                                </Image.Source>
+                            </Image>
+                            <Image Width="50" Height="50">
+                                <Image.Source>
+                                    <BitmapImage UriSource="{Binding Item2Url}"></BitmapImage>
+                                </Image.Source>
+                            </Image>
+                            <Image Width="50" Height="50">
+                                <Image.Source>
+                                    <BitmapImage UriSource="{Binding Item3Url}"></BitmapImage>
+                                </Image.Source>
+                            </Image>
+                            <Image Width="50" Height="50">
+                                <Image.Source>
+                                    <BitmapImage UriSource="{Binding Item4Url}"></BitmapImage>
+                                </Image.Source>
+                            </Image>
+                            <Image Width="50" Height="50">
+                                <Image.Source>
+                                    <BitmapImage UriSource="{Binding Item5Url}"></BitmapImage>
+                                </Image.Source>
+                            </Image>
+                            <Image Width="50" Height="50">
+                                <Image.Source>
+                                    <BitmapImage UriSource="{Binding Item6Url}"></BitmapImage>
+                                </Image.Source>
+                            </Image>
+                        </StackPanel>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
         </StackPanel>
     </RelativePanel>
 

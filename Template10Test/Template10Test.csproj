@@ -105,7 +105,13 @@
     <None Include="Service References\Twitch10ServiceReference\Service12.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\Twitch10ServiceReference\Template10Test.Twitch10ServiceReference.Build.datasource">
+    <None Include="Service References\Twitch10ServiceReference\Service13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Twitch10ServiceReference\Service14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Twitch10ServiceReference\Template10Test.Twitch10ServiceReference.BuildContract.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\Twitch10ServiceReference\Template10Test.Twitch10ServiceReference.User.datasource">
@@ -121,10 +127,12 @@
     <Compile Include="Models\Build.cs" />
     <Compile Include="Models\Data.cs" />
     <Compile Include="Models\Channel\Links.cs" />
+    <Compile Include="Models\DisplayBuild.cs" />
     <Compile Include="Models\LoginManager.cs" />
     <Compile Include="Models\Channel\RootObject.cs" />
     <Compile Include="Models\Channel\Streamer.cs" />
     <Compile Include="Models\Region.cs" />
+    <Compile Include="Models\Riot\ChampionById\RootObject.cs" />
     <Compile Include="Models\Riot\MatchById\Ban.cs" />
     <Compile Include="Models\Riot\MatchById\CreepsPerMinDeltas.cs" />
     <Compile Include="Models\Riot\MatchById\CsDiffPerMinDeltas.cs" />

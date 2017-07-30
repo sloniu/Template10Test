@@ -3,8 +3,10 @@
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:61704/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:61704/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Twitch10WcfService.Exceptions" />
       <xsd:import schemaLocation="http://localhost:61704/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:61704/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Twitch10WcfService.DAL.Entities" />
+      <xsd:import schemaLocation="http://localhost:61704/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Twitch10WcfService.Models" />
+      <xsd:import schemaLocation="http://localhost:61704/Service1.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Twitch10WcfService.DAL.Entities" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService1_GetBuilds_InputMessage">
@@ -13,11 +15,17 @@
   <wsdl:message name="IService1_GetBuilds_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetBuildsResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetBuilds_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Twitch10WcfService.Exceptions" name="detail" element="q1:ServiceException" />
+  </wsdl:message>
   <wsdl:message name="IService1_Get_InputMessage">
     <wsdl:part name="parameters" element="tns:Get" />
   </wsdl:message>
   <wsdl:message name="IService1_Get_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Get_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Twitch10WcfService.Exceptions" name="detail" element="q2:ServiceException" />
   </wsdl:message>
   <wsdl:message name="IService1_GetBuildById_InputMessage">
     <wsdl:part name="parameters" element="tns:GetBuildById" />
@@ -25,11 +33,17 @@
   <wsdl:message name="IService1_GetBuildById_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetBuildByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetBuildById_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Twitch10WcfService.Exceptions" name="detail" element="q3:ServiceException" />
+  </wsdl:message>
   <wsdl:message name="IService1_PostBuild_InputMessage">
     <wsdl:part name="parameters" element="tns:PostBuild" />
   </wsdl:message>
   <wsdl:message name="IService1_PostBuild_OutputMessage">
     <wsdl:part name="parameters" element="tns:PostBuildResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PostBuild_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Twitch10WcfService.Exceptions" name="detail" element="q4:ServiceException" />
   </wsdl:message>
   <wsdl:message name="IService1_DeleteBuild_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteBuild" />
@@ -37,11 +51,26 @@
   <wsdl:message name="IService1_DeleteBuild_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteBuildResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_DeleteBuild_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Twitch10WcfService.Exceptions" name="detail" element="q5:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetBuildsByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBuildsByUser" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetBuildsByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBuildsByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetBuildsByUser_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Twitch10WcfService.Exceptions" name="detail" element="q6:ServiceException" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetUser_InputMessage">
     <wsdl:part name="parameters" element="tns:GetUser" />
   </wsdl:message>
   <wsdl:message name="IService1_GetUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUser_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/Twitch10WcfService.Exceptions" name="detail" element="q7:ServiceException" />
   </wsdl:message>
   <wsdl:message name="IService1_GetUserById_InputMessage">
     <wsdl:part name="parameters" element="tns:GetUserById" />
@@ -49,44 +78,63 @@
   <wsdl:message name="IService1_GetUserById_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUserByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetUserById_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/Twitch10WcfService.Exceptions" name="detail" element="q8:ServiceException" />
+  </wsdl:message>
   <wsdl:message name="IService1_PostUser_InputMessage">
     <wsdl:part name="parameters" element="tns:PostUser" />
   </wsdl:message>
   <wsdl:message name="IService1_PostUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:PostUserResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_PostUser_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/Twitch10WcfService.Exceptions" name="detail" element="q9:ServiceException" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetBuilds">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetBuilds" message="tns:IService1_GetBuilds_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetBuildsResponse" message="tns:IService1_GetBuilds_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IService1/GetBuildsServiceExceptionFault" name="ServiceExceptionFault" message="tns:IService1_GetBuilds_ServiceExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="Get">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Get" message="tns:IService1_Get_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetResponse" message="tns:IService1_Get_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IService1/GetServiceExceptionFault" name="ServiceExceptionFault" message="tns:IService1_Get_ServiceExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetBuildById">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetBuildById" message="tns:IService1_GetBuildById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetBuildByIdResponse" message="tns:IService1_GetBuildById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IService1/GetBuildByIdServiceExceptionFault" name="ServiceExceptionFault" message="tns:IService1_GetBuildById_ServiceExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="PostBuild">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/PostBuild" message="tns:IService1_PostBuild_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/PostBuildResponse" message="tns:IService1_PostBuild_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IService1/PostBuildServiceExceptionFault" name="ServiceExceptionFault" message="tns:IService1_PostBuild_ServiceExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeleteBuild">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteBuild" message="tns:IService1_DeleteBuild_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteBuildResponse" message="tns:IService1_DeleteBuild_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IService1/DeleteBuildServiceExceptionFault" name="ServiceExceptionFault" message="tns:IService1_DeleteBuild_ServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBuildsByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetBuildsByUser" message="tns:IService1_GetBuildsByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetBuildsByUserResponse" message="tns:IService1_GetBuildsByUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IService1/GetBuildsByUserServiceExceptionFault" name="ServiceExceptionFault" message="tns:IService1_GetBuildsByUser_ServiceExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetUser" message="tns:IService1_GetUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetUserResponse" message="tns:IService1_GetUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IService1/GetUserServiceExceptionFault" name="ServiceExceptionFault" message="tns:IService1_GetUser_ServiceExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetUserById">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetUserById" message="tns:IService1_GetUserById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetUserByIdResponse" message="tns:IService1_GetUserById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IService1/GetUserByIdServiceExceptionFault" name="ServiceExceptionFault" message="tns:IService1_GetUserById_ServiceExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="PostUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/PostUser" message="tns:IService1_PostUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/PostUserResponse" message="tns:IService1_PostUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IService1/PostUserServiceExceptionFault" name="ServiceExceptionFault" message="tns:IService1_PostUser_ServiceExceptionFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -99,6 +147,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="Get">
       <soap:operation soapAction="http://tempuri.org/IService1/Get" style="document" />
@@ -108,6 +159,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="GetBuildById">
       <soap:operation soapAction="http://tempuri.org/IService1/GetBuildById" style="document" />
@@ -117,6 +171,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="PostBuild">
       <soap:operation soapAction="http://tempuri.org/IService1/PostBuild" style="document" />
@@ -126,6 +183,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="DeleteBuild">
       <soap:operation soapAction="http://tempuri.org/IService1/DeleteBuild" style="document" />
@@ -135,6 +195,21 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetBuildsByUser">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetBuildsByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="GetUser">
       <soap:operation soapAction="http://tempuri.org/IService1/GetUser" style="document" />
@@ -144,6 +219,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="GetUserById">
       <soap:operation soapAction="http://tempuri.org/IService1/GetUserById" style="document" />
@@ -153,6 +231,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="PostUser">
       <soap:operation soapAction="http://tempuri.org/IService1/PostUser" style="document" />
@@ -162,6 +243,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="Service1">

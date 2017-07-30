@@ -1,7 +1,10 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using Twitch10WcfService.DAL.Entities;
+using Twitch10WcfService.Exceptions;
+using Twitch10WcfService.Models;
 
 namespace Twitch10WcfService
 {
@@ -12,31 +15,45 @@ namespace Twitch10WcfService
         #region Builds
 
         [OperationContract]
-        IQueryable<Build> GetBuilds();
+        [FaultContract(typeof(ServiceException))]
+        List<BuildContract> GetBuilds();
 
         [OperationContract]
-        Build Get(string region, string name);
+        [FaultContract(typeof(ServiceException))]
+        BuildContract Get(string region, string name);
 
         [OperationContract]
-        Build GetBuildById(int id);
+        [FaultContract(typeof(ServiceException))]
+        BuildContract GetBuildById(int id);
 
         [OperationContract]
+        [FaultContract(typeof(ServiceException))]
+        [TransactionFlow(TransactionFlowOption.Allowed)]
         void PostBuild(string token, string region, string playerName, string matchId);
 
         [OperationContract]
+        [FaultContract(typeof(ServiceException))]
+        [TransactionFlow(TransactionFlowOption.Allowed)]
         void DeleteBuild(int id);
 
+        [OperationContract]
+        [FaultContract(typeof(ServiceException))]
+        List<BuildContract> GetBuildsByUser(string token);
         #endregion
 
         #region Users
 
         [OperationContract]
+        [FaultContract(typeof(ServiceException))]
         IQueryable<User> GetUser();
 
         [OperationContract]
+        [FaultContract(typeof(ServiceException))]
         User GetUserById(int id);
 
         [OperationContract]
+        [FaultContract(typeof(ServiceException))]
+        [TransactionFlow(TransactionFlowOption.Allowed)]
         void PostUser(string userName, string token);
 
         #endregion

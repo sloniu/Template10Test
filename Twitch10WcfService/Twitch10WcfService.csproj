@@ -83,7 +83,18 @@
     <Compile Include="DAL\Entities\User.cs" />
     <Compile Include="DAL\Entities\UserHasBuild.cs" />
     <Compile Include="DAL\TwitchContext.cs" />
+    <Compile Include="Exceptions\ServiceException.cs" />
+    <Compile Include="Migrations\201707301710070_InitialCreate.cs" />
+    <Compile Include="Migrations\201707301710070_InitialCreate.Designer.cs">
+      <DependentUpon>201707301710070_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707302220196_2017-07-31.cs" />
+    <Compile Include="Migrations\201707302220196_2017-07-31.Designer.cs">
+      <DependentUpon>201707302220196_2017-07-31.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AuthenticateToken.cs" />
+    <Compile Include="Models\BuildContract.cs" />
     <Compile Include="Models\DatabaseManager.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\JsonParser.cs" />
@@ -112,6 +123,14 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201707301710070_InitialCreate.resx">
+      <DependentUpon>201707301710070_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707302220196_2017-07-31.resx">
+      <DependentUpon>201707302220196_2017-07-31.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

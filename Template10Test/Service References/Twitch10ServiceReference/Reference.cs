@@ -17,6 +17,411 @@ namespace Template10Test.Twitch10ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BuildContract", Namespace="http://schemas.datacontract.org/2004/07/Twitch10WcfService.Models")]
+    public partial class BuildContract : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int BuildIdField;
+        
+        private int ChampionIdField;
+        
+        private int Item1IdField;
+        
+        private int Item2IdField;
+        
+        private int Item3IdField;
+        
+        private int Item4IdField;
+        
+        private int Item5IdField;
+        
+        private int Item6IdField;
+        
+        private long MatchIdField;
+        
+        private string PlayerNameField;
+        
+        private string RegionField;
+        
+        private int Spell1IdField;
+        
+        private int Spell2IdField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int BuildId {
+            get {
+                return this.BuildIdField;
+            }
+            set {
+                if ((this.BuildIdField.Equals(value) != true)) {
+                    this.BuildIdField = value;
+                    this.RaisePropertyChanged("BuildId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ChampionId {
+            get {
+                return this.ChampionIdField;
+            }
+            set {
+                if ((this.ChampionIdField.Equals(value) != true)) {
+                    this.ChampionIdField = value;
+                    this.RaisePropertyChanged("ChampionId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Item1Id {
+            get {
+                return this.Item1IdField;
+            }
+            set {
+                if ((this.Item1IdField.Equals(value) != true)) {
+                    this.Item1IdField = value;
+                    this.RaisePropertyChanged("Item1Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Item2Id {
+            get {
+                return this.Item2IdField;
+            }
+            set {
+                if ((this.Item2IdField.Equals(value) != true)) {
+                    this.Item2IdField = value;
+                    this.RaisePropertyChanged("Item2Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Item3Id {
+            get {
+                return this.Item3IdField;
+            }
+            set {
+                if ((this.Item3IdField.Equals(value) != true)) {
+                    this.Item3IdField = value;
+                    this.RaisePropertyChanged("Item3Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Item4Id {
+            get {
+                return this.Item4IdField;
+            }
+            set {
+                if ((this.Item4IdField.Equals(value) != true)) {
+                    this.Item4IdField = value;
+                    this.RaisePropertyChanged("Item4Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Item5Id {
+            get {
+                return this.Item5IdField;
+            }
+            set {
+                if ((this.Item5IdField.Equals(value) != true)) {
+                    this.Item5IdField = value;
+                    this.RaisePropertyChanged("Item5Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Item6Id {
+            get {
+                return this.Item6IdField;
+            }
+            set {
+                if ((this.Item6IdField.Equals(value) != true)) {
+                    this.Item6IdField = value;
+                    this.RaisePropertyChanged("Item6Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long MatchId {
+            get {
+                return this.MatchIdField;
+            }
+            set {
+                if ((this.MatchIdField.Equals(value) != true)) {
+                    this.MatchIdField = value;
+                    this.RaisePropertyChanged("MatchId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PlayerName {
+            get {
+                return this.PlayerNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PlayerNameField, value) != true)) {
+                    this.PlayerNameField = value;
+                    this.RaisePropertyChanged("PlayerName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Region {
+            get {
+                return this.RegionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RegionField, value) != true)) {
+                    this.RegionField = value;
+                    this.RaisePropertyChanged("Region");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Spell1Id {
+            get {
+                return this.Spell1IdField;
+            }
+            set {
+                if ((this.Spell1IdField.Equals(value) != true)) {
+                    this.Spell1IdField = value;
+                    this.RaisePropertyChanged("Spell1Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Spell2Id {
+            get {
+                return this.Spell2IdField;
+            }
+            set {
+                if ((this.Spell2IdField.Equals(value) != true)) {
+                    this.Spell2IdField = value;
+                    this.RaisePropertyChanged("Spell2Id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/Twitch10WcfService.Exceptions")]
+    public partial class ServiceException : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string DescriptionField;
+        
+        private int IdField;
+        
+        private string MessageField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Message {
+            get {
+                return this.MessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
+                    this.MessageField = value;
+                    this.RaisePropertyChanged("Message");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/Twitch10WcfService.DAL.Entities")]
+    public partial class User : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private System.Collections.ObjectModel.ObservableCollection<Template10Test.Twitch10ServiceReference.UserHasBuild> UserHasBuildsField;
+        
+        private int UserIdField;
+        
+        private string UserNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<Template10Test.Twitch10ServiceReference.UserHasBuild> UserHasBuilds {
+            get {
+                return this.UserHasBuildsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserHasBuildsField, value) != true)) {
+                    this.UserHasBuildsField = value;
+                    this.RaisePropertyChanged("UserHasBuilds");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((this.UserIdField.Equals(value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserName {
+            get {
+                return this.UserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
+                    this.UserNameField = value;
+                    this.RaisePropertyChanged("UserName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserHasBuild", Namespace="http://schemas.datacontract.org/2004/07/Twitch10WcfService.DAL.Entities")]
+    public partial class UserHasBuild : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private Template10Test.Twitch10ServiceReference.Build BuildField;
+        
+        private int BuildIdField;
+        
+        private Template10Test.Twitch10ServiceReference.User UserField;
+        
+        private int UserIdField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Template10Test.Twitch10ServiceReference.Build Build {
+            get {
+                return this.BuildField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BuildField, value) != true)) {
+                    this.BuildField = value;
+                    this.RaisePropertyChanged("Build");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int BuildId {
+            get {
+                return this.BuildIdField;
+            }
+            set {
+                if ((this.BuildIdField.Equals(value) != true)) {
+                    this.BuildIdField = value;
+                    this.RaisePropertyChanged("BuildId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Template10Test.Twitch10ServiceReference.User User {
+            get {
+                return this.UserField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserField, value) != true)) {
+                    this.UserField = value;
+                    this.RaisePropertyChanged("User");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((this.UserIdField.Equals(value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Build", Namespace="http://schemas.datacontract.org/2004/07/Twitch10WcfService.DAL.Entities")]
     public partial class Build : object, System.ComponentModel.INotifyPropertyChanged {
         
@@ -39,6 +444,8 @@ namespace Template10Test.Twitch10ServiceReference {
         private long MatchIdField;
         
         private string PlayerNameField;
+        
+        private string RegionField;
         
         private int Spell1IdField;
         
@@ -177,6 +584,19 @@ namespace Template10Test.Twitch10ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Region {
+            get {
+                return this.RegionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RegionField, value) != true)) {
+                    this.RegionField = value;
+                    this.RaisePropertyChanged("Region");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Spell1Id {
             get {
                 return this.Spell1IdField;
@@ -225,167 +645,44 @@ namespace Template10Test.Twitch10ServiceReference {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserHasBuild", Namespace="http://schemas.datacontract.org/2004/07/Twitch10WcfService.DAL.Entities")]
-    public partial class UserHasBuild : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private Template10Test.Twitch10ServiceReference.Build BuildField;
-        
-        private int BuildIdField;
-        
-        private Template10Test.Twitch10ServiceReference.User UserField;
-        
-        private int UserIdField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Template10Test.Twitch10ServiceReference.Build Build {
-            get {
-                return this.BuildField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BuildField, value) != true)) {
-                    this.BuildField = value;
-                    this.RaisePropertyChanged("Build");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int BuildId {
-            get {
-                return this.BuildIdField;
-            }
-            set {
-                if ((this.BuildIdField.Equals(value) != true)) {
-                    this.BuildIdField = value;
-                    this.RaisePropertyChanged("BuildId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Template10Test.Twitch10ServiceReference.User User {
-            get {
-                return this.UserField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UserField, value) != true)) {
-                    this.UserField = value;
-                    this.RaisePropertyChanged("User");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int UserId {
-            get {
-                return this.UserIdField;
-            }
-            set {
-                if ((this.UserIdField.Equals(value) != true)) {
-                    this.UserIdField = value;
-                    this.RaisePropertyChanged("UserId");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/Twitch10WcfService.DAL.Entities")]
-    public partial class User : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private System.Collections.ObjectModel.ObservableCollection<Template10Test.Twitch10ServiceReference.UserHasBuild> UserHasBuildsField;
-        
-        private int UserIdField;
-        
-        private string UserNameField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<Template10Test.Twitch10ServiceReference.UserHasBuild> UserHasBuilds {
-            get {
-                return this.UserHasBuildsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UserHasBuildsField, value) != true)) {
-                    this.UserHasBuildsField = value;
-                    this.RaisePropertyChanged("UserHasBuilds");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int UserId {
-            get {
-                return this.UserIdField;
-            }
-            set {
-                if ((this.UserIdField.Equals(value) != true)) {
-                    this.UserIdField = value;
-                    this.RaisePropertyChanged("UserId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UserName {
-            get {
-                return this.UserNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
-                    this.UserNameField = value;
-                    this.RaisePropertyChanged("UserName");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="Twitch10ServiceReference.IService1")]
     public interface IService1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBuilds", ReplyAction="http://tempuri.org/IService1/GetBuildsResponse")]
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Template10Test.Twitch10ServiceReference.Build>> GetBuildsAsync();
+        [System.ServiceModel.FaultContractAttribute(typeof(Template10Test.Twitch10ServiceReference.ServiceException), Action="http://tempuri.org/IService1/GetBuildsServiceExceptionFault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/Twitch10WcfService.Exceptions")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Template10Test.Twitch10ServiceReference.BuildContract>> GetBuildsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get", ReplyAction="http://tempuri.org/IService1/GetResponse")]
-        System.Threading.Tasks.Task<Template10Test.Twitch10ServiceReference.Build> GetAsync(string region, string name);
+        [System.ServiceModel.FaultContractAttribute(typeof(Template10Test.Twitch10ServiceReference.ServiceException), Action="http://tempuri.org/IService1/GetServiceExceptionFault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/Twitch10WcfService.Exceptions")]
+        System.Threading.Tasks.Task<Template10Test.Twitch10ServiceReference.BuildContract> GetAsync(string region, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBuildById", ReplyAction="http://tempuri.org/IService1/GetBuildByIdResponse")]
-        System.Threading.Tasks.Task<Template10Test.Twitch10ServiceReference.Build> GetBuildByIdAsync(int id);
+        [System.ServiceModel.FaultContractAttribute(typeof(Template10Test.Twitch10ServiceReference.ServiceException), Action="http://tempuri.org/IService1/GetBuildByIdServiceExceptionFault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/Twitch10WcfService.Exceptions")]
+        System.Threading.Tasks.Task<Template10Test.Twitch10ServiceReference.BuildContract> GetBuildByIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/PostBuild", ReplyAction="http://tempuri.org/IService1/PostBuildResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Template10Test.Twitch10ServiceReference.ServiceException), Action="http://tempuri.org/IService1/PostBuildServiceExceptionFault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/Twitch10WcfService.Exceptions")]
         System.Threading.Tasks.Task PostBuildAsync(string token, string region, string playerName, string matchId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteBuild", ReplyAction="http://tempuri.org/IService1/DeleteBuildResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Template10Test.Twitch10ServiceReference.ServiceException), Action="http://tempuri.org/IService1/DeleteBuildServiceExceptionFault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/Twitch10WcfService.Exceptions")]
         System.Threading.Tasks.Task DeleteBuildAsync(int id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBuildsByUser", ReplyAction="http://tempuri.org/IService1/GetBuildsByUserResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Template10Test.Twitch10ServiceReference.ServiceException), Action="http://tempuri.org/IService1/GetBuildsByUserServiceExceptionFault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/Twitch10WcfService.Exceptions")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Template10Test.Twitch10ServiceReference.BuildContract>> GetBuildsByUserAsync(string token);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUser", ReplyAction="http://tempuri.org/IService1/GetUserResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Template10Test.Twitch10ServiceReference.ServiceException), Action="http://tempuri.org/IService1/GetUserServiceExceptionFault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/Twitch10WcfService.Exceptions")]
         System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Template10Test.Twitch10ServiceReference.User>> GetUserAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUserById", ReplyAction="http://tempuri.org/IService1/GetUserByIdResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Template10Test.Twitch10ServiceReference.ServiceException), Action="http://tempuri.org/IService1/GetUserByIdServiceExceptionFault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/Twitch10WcfService.Exceptions")]
         System.Threading.Tasks.Task<Template10Test.Twitch10ServiceReference.User> GetUserByIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/PostUser", ReplyAction="http://tempuri.org/IService1/PostUserResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Template10Test.Twitch10ServiceReference.ServiceException), Action="http://tempuri.org/IService1/PostUserServiceExceptionFault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/Twitch10WcfService.Exceptions")]
         System.Threading.Tasks.Task PostUserAsync(string userName, string token);
     }
     
@@ -432,15 +729,15 @@ namespace Template10Test.Twitch10ServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Template10Test.Twitch10ServiceReference.Build>> GetBuildsAsync() {
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Template10Test.Twitch10ServiceReference.BuildContract>> GetBuildsAsync() {
             return base.Channel.GetBuildsAsync();
         }
         
-        public System.Threading.Tasks.Task<Template10Test.Twitch10ServiceReference.Build> GetAsync(string region, string name) {
+        public System.Threading.Tasks.Task<Template10Test.Twitch10ServiceReference.BuildContract> GetAsync(string region, string name) {
             return base.Channel.GetAsync(region, name);
         }
         
-        public System.Threading.Tasks.Task<Template10Test.Twitch10ServiceReference.Build> GetBuildByIdAsync(int id) {
+        public System.Threading.Tasks.Task<Template10Test.Twitch10ServiceReference.BuildContract> GetBuildByIdAsync(int id) {
             return base.Channel.GetBuildByIdAsync(id);
         }
         
@@ -450,6 +747,10 @@ namespace Template10Test.Twitch10ServiceReference {
         
         public System.Threading.Tasks.Task DeleteBuildAsync(int id) {
             return base.Channel.DeleteBuildAsync(id);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Template10Test.Twitch10ServiceReference.BuildContract>> GetBuildsByUserAsync(string token) {
+            return base.Channel.GetBuildsByUserAsync(token);
         }
         
         public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Template10Test.Twitch10ServiceReference.User>> GetUserAsync() {

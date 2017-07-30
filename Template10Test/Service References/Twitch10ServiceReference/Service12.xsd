@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:61704/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Twitch10WcfService.DAL.Entities" />
+  <xs:import schemaLocation="http://localhost:61704/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Twitch10WcfService.Models" />
+  <xs:import schemaLocation="http://localhost:61704/Service1.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Twitch10WcfService.DAL.Entities" />
   <xs:element name="GetBuilds">
     <xs:complexType>
       <xs:sequence />
@@ -9,7 +10,7 @@
   <xs:element name="GetBuildsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Twitch10WcfService.DAL.Entities" minOccurs="0" name="GetBuildsResult" nillable="true" type="q1:ArrayOfBuild" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Twitch10WcfService.Models" minOccurs="0" name="GetBuildsResult" nillable="true" type="q1:ArrayOfBuildContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -24,7 +25,7 @@
   <xs:element name="GetResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Twitch10WcfService.DAL.Entities" minOccurs="0" name="GetResult" nillable="true" type="q2:Build" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Twitch10WcfService.Models" minOccurs="0" name="GetResult" nillable="true" type="q2:BuildContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -38,7 +39,7 @@
   <xs:element name="GetBuildByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Twitch10WcfService.DAL.Entities" minOccurs="0" name="GetBuildByIdResult" nillable="true" type="q3:Build" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Twitch10WcfService.Models" minOccurs="0" name="GetBuildByIdResult" nillable="true" type="q3:BuildContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -69,6 +70,20 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetBuildsByUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBuildsByUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Twitch10WcfService.Models" minOccurs="0" name="GetBuildsByUserResult" nillable="true" type="q4:ArrayOfBuildContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetUser">
     <xs:complexType>
       <xs:sequence />
@@ -77,7 +92,7 @@
   <xs:element name="GetUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Twitch10WcfService.DAL.Entities" minOccurs="0" name="GetUserResult" nillable="true" type="q4:ArrayOfUser" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Twitch10WcfService.DAL.Entities" minOccurs="0" name="GetUserResult" nillable="true" type="q5:ArrayOfUser" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -91,7 +106,7 @@
   <xs:element name="GetUserByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Twitch10WcfService.DAL.Entities" minOccurs="0" name="GetUserByIdResult" nillable="true" type="q5:User" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Twitch10WcfService.DAL.Entities" minOccurs="0" name="GetUserByIdResult" nillable="true" type="q6:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

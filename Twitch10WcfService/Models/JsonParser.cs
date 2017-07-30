@@ -126,7 +126,8 @@ namespace Twitch10WcfService.Models
                 MatchId = match.gameId,
                 PlayerName = summonerName,
                 Spell1Id = player.spell1Id,
-                Spell2Id = player.spell2Id
+                Spell2Id = player.spell2Id,
+                Region = region
             };
             return build;
         }
@@ -151,7 +152,8 @@ namespace Twitch10WcfService.Models
                 MatchId = match.gameId,
                 PlayerName = summonerName,
                 Spell1Id = player.spell1Id,
-                Spell2Id = player.spell2Id
+                Spell2Id = player.spell2Id,
+                Region = region
             };
             return build;
         }
