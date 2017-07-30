@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template10Test", "Template10Test\Template10Test.csproj", "{305789B6-54C2-4D9E-8C3B-47425C5A00C4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{06AE8BA9-8749-4668-8291-DA6380D1802D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks", "Tasks\Tasks.csproj", "{92D2A0A2-04C2-4369-8A68-CB33893A50F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Twitch10WcfService", "Twitch10WcfService\Twitch10WcfService.csproj", "{82AF1960-63AB-4855-BACF-B9DD8DEA02BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,22 @@ Global
 		{92D2A0A2-04C2-4369-8A68-CB33893A50F8}.Release|x64.Build.0 = Release|x64
 		{92D2A0A2-04C2-4369-8A68-CB33893A50F8}.Release|x86.ActiveCfg = Release|x86
 		{92D2A0A2-04C2-4369-8A68-CB33893A50F8}.Release|x86.Build.0 = Release|x86
+		{82AF1960-63AB-4855-BACF-B9DD8DEA02BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82AF1960-63AB-4855-BACF-B9DD8DEA02BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82AF1960-63AB-4855-BACF-B9DD8DEA02BE}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{82AF1960-63AB-4855-BACF-B9DD8DEA02BE}.Debug|ARM.Build.0 = Debug|Any CPU
+		{82AF1960-63AB-4855-BACF-B9DD8DEA02BE}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{82AF1960-63AB-4855-BACF-B9DD8DEA02BE}.Debug|x64.Build.0 = Debug|Any CPU
+		{82AF1960-63AB-4855-BACF-B9DD8DEA02BE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{82AF1960-63AB-4855-BACF-B9DD8DEA02BE}.Debug|x86.Build.0 = Debug|Any CPU
+		{82AF1960-63AB-4855-BACF-B9DD8DEA02BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82AF1960-63AB-4855-BACF-B9DD8DEA02BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82AF1960-63AB-4855-BACF-B9DD8DEA02BE}.Release|ARM.ActiveCfg = Release|Any CPU
+		{82AF1960-63AB-4855-BACF-B9DD8DEA02BE}.Release|ARM.Build.0 = Release|Any CPU
+		{82AF1960-63AB-4855-BACF-B9DD8DEA02BE}.Release|x64.ActiveCfg = Release|Any CPU
+		{82AF1960-63AB-4855-BACF-B9DD8DEA02BE}.Release|x64.Build.0 = Release|Any CPU
+		{82AF1960-63AB-4855-BACF-B9DD8DEA02BE}.Release|x86.ActiveCfg = Release|Any CPU
+		{82AF1960-63AB-4855-BACF-B9DD8DEA02BE}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

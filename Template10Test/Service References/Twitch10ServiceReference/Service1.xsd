@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Twitch10WcfService.DAL.Entities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Twitch10WcfService.DAL.Entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfBuild">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Build" nillable="true" type="tns:Build" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBuild" nillable="true" type="tns:ArrayOfBuild" />
+  <xs:complexType name="Build">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BuildId" type="xs:int" />
+      <xs:element minOccurs="0" name="ChampionId" type="xs:int" />
+      <xs:element minOccurs="0" name="Item1Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Item2Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Item3Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Item4Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Item5Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Item6Id" type="xs:int" />
+      <xs:element minOccurs="0" name="MatchId" type="xs:long" />
+      <xs:element minOccurs="0" name="PlayerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Spell1Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Spell2Id" type="xs:int" />
+      <xs:element minOccurs="0" name="UserHasBuilds" nillable="true" type="tns:ArrayOfUserHasBuild" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Build" nillable="true" type="tns:Build" />
+  <xs:complexType name="ArrayOfUserHasBuild">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserHasBuild" nillable="true" type="tns:UserHasBuild" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserHasBuild" nillable="true" type="tns:ArrayOfUserHasBuild" />
+  <xs:complexType name="UserHasBuild">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Build" nillable="true" type="tns:Build" />
+      <xs:element minOccurs="0" name="BuildId" type="xs:int" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserHasBuild" nillable="true" type="tns:UserHasBuild" />
+  <xs:complexType name="User">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UserHasBuilds" nillable="true" type="tns:ArrayOfUserHasBuild" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="ArrayOfUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUser" nillable="true" type="tns:ArrayOfUser" />
+</xs:schema>
