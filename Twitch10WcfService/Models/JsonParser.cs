@@ -12,7 +12,7 @@ namespace Twitch10WcfService.Models
 {
     public class JsonParser
     {
-        private const string ApiKey = "RGAPI-164c3fb2-3e40-474b-bf7e-18e864ed4a28";
+        private const string ApiKey = "RGAPI-ea3d6233-a633-4893-b73d-3149d1a9c316";
 
         public T Parser<T>(string region, string summonerName)
         {
