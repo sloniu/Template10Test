@@ -95,26 +95,26 @@
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
-    <None Include="Service References\Twitch10ServiceReference\Service1.wsdl" />
-    <None Include="Service References\Twitch10ServiceReference\Service1.xsd">
+    <None Include="Service References\Service1.xsd\Service11.wsdl" />
+    <None Include="Service References\Service1.xsd\Service15.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\Twitch10ServiceReference\Service11.xsd">
+    <None Include="Service References\Service1.xsd\Service151.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\Twitch10ServiceReference\Service12.xsd">
+    <None Include="Service References\Service1.xsd\Service152.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\Twitch10ServiceReference\Service13.xsd">
+    <None Include="Service References\Service1.xsd\Service153.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\Twitch10ServiceReference\Service14.xsd">
+    <None Include="Service References\Service1.xsd\Service154.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\Twitch10ServiceReference\Template10Test.Twitch10ServiceReference.BuildContract.datasource">
+    <None Include="Service References\Service1.xsd\Template10Test.Service1.xsd.BuildContract.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\Twitch10ServiceReference\Template10Test.Twitch10ServiceReference.User.datasource">
+    <None Include="Service References\Service1.xsd\Template10Test.Service1.xsd.User.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Template10Test_TemporaryKey.pfx" />
@@ -162,7 +162,7 @@
     <Compile Include="Models\User\Notifications.cs" />
     <Compile Include="Models\User\RootObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\Twitch10ServiceReference\Reference.cs">
+    <Compile Include="Service References\Service1.xsd\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -209,13 +209,13 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
-    <None Include="Service References\Twitch10ServiceReference\Reference.svcmap">
+    <None Include="Service References\Service1.xsd\Service11.disco" />
+    <None Include="Service References\Service1.xsd\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\Twitch10ServiceReference\configuration.svcinfo" />
-    <None Include="Service References\Twitch10ServiceReference\configuration91.svcinfo" />
-    <None Include="Service References\Twitch10ServiceReference\Service1.disco" />
+    <None Include="Service References\Service1.xsd\configuration.svcinfo" />
+    <None Include="Service References\Service1.xsd\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -272,7 +272,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\Twitch10ServiceReference\" />
+    <WCFMetadataStorage Include="Service References\Service1.xsd\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

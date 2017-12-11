@@ -10,7 +10,8 @@ using Template10.Mvvm;
 using Template10.Services.NavigationService;
 using Template10Test.Models;
 using Template10Test.Models.Riot.ChampionById;
-using Template10Test.Twitch10ServiceReference;
+using Template10Test.Service1.xsd;
+using Template10Test.Service1;
 using Template10Test.Views;
 using Data = Template10Test.Helpers.Data;
 
@@ -18,7 +19,6 @@ namespace Template10Test.ViewModels
 {
     public class BuildsPageViewModel : ViewModelBase
     {
-        private const string Url = "http://twitch10webapitest.azurewebsites.net";
         private const string ChampionUrl = "https://ddragon.leagueoflegends.com/cdn/7.15.1/img/champion";
         private const string ItemUrl = "http://ddragon.leagueoflegends.com/cdn/7.15.1/img/item";
         private readonly string _apiKey = Data.ApiKey;
@@ -31,6 +31,7 @@ namespace Template10Test.ViewModels
 
 
         private string _championImage = "ms-appx://Template10Test/Assets/StoreLogo.png";
+
         private readonly Service1Client _client = new Service1Client();
 
         private ObservableCollection<DisplayBuild> _currentBuilds;
@@ -292,7 +293,62 @@ namespace Template10Test.ViewModels
             
         }
 
-        public async void GetUsersBuilds()
+	    public async void ShowAllBuilds()
+	    {
+		    if (Region == null)
+		    {
+			    return;
+		    }
+			if (string.IsNullOrEmpty(LoginManager.Instance.Token))
+			{
+				WarningMessage = "You need to log in to post build.\n" +
+								 "Please log in on HOME page.";
+				return;
+			}
+			WarningMessage = "";
+			try
+			{
+				var get = _client.GetBuildsAsync();
+				await get;
+				var builds = get.Result;
+
+				using (var w = new HttpClient())
+				{
+					BuildsList = new ObservableCollection<DisplayBuild>();
+					foreach (var build in builds)
+					{
+						var json =
+							w.GetStringAsync(
+									$"https://{Region.Value}.api.riotgames.com/lol/static-data/v3/champions/{build.ChampionId}?locale=en_US&tags=image&api_key={_apiKey}")
+								;
+						var json2 = await json;
+						var r = JsonConvert.DeserializeObject<RootObject>(json2);
+
+						BuildsList.Add(new DisplayBuild
+						{
+							ChampionUrl = $"{ChampionUrl}/{r.image.full}",
+							Item1Url = $"{ItemUrl}/{build.Item1Id}.png",
+							Item2Url = $"{ItemUrl}/{build.Item2Id}.png",
+							Item3Url = $"{ItemUrl}/{build.Item3Id}.png",
+							Item4Url = $"{ItemUrl}/{build.Item4Id}.png",
+							Item5Url = $"{ItemUrl}/{build.Item5Id}.png",
+							Item6Url = $"{ItemUrl}/{build.Item6Id}.png",
+							MatchId = MatchId,
+							PlayerName = build.PlayerName,
+							Region = build.Region
+						});
+					}
+				}
+			}
+			catch (FaultException<ServiceException> e)
+			{
+				WarningMessage = e.Detail.Message;
+				//throw;
+			}
+		}
+
+
+		public async void GetUsersBuilds()
         {
 	        if (Region == null)
 	        {

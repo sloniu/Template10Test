@@ -152,6 +152,8 @@ namespace Twitch10WcfService
             
         }
 
+
+
         public IQueryable<User> GetUser()
         {
             return _dbContext.Users;

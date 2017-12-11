@@ -143,6 +143,7 @@
             </GridView>
             <Button Content="Add selected build" Click="{x:Bind ViewModel.AddBuild}"></Button>
 			<Button Content="Delete selected build" Click="{x:Bind ViewModel.DeleteSelectedBuild}"></Button>
+			<Button Content="Show all builds" Click="{x:Bind ViewModel.ShowAllBuilds}"></Button>
 
 		</StackPanel>
         <StackPanel RelativePanel.Below="StackPanel4">
