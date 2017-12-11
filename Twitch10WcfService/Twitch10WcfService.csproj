@@ -84,6 +84,7 @@
     <Compile Include="DAL\Entities\UserHasBuild.cs" />
     <Compile Include="DAL\TwitchContext.cs" />
     <Compile Include="Exceptions\ServiceException.cs" />
+    <Compile Include="Helpers\Data.cs" />
     <Compile Include="Migrations\201707301710070_InitialCreate.cs" />
     <Compile Include="Migrations\201707301710070_InitialCreate.Designer.cs">
       <DependentUpon>201707301710070_InitialCreate.cs</DependentUpon>

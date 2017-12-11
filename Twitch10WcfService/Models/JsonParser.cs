@@ -5,6 +5,7 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Twitch10WcfService.DAL.Entities;
+using Twitch10WcfService.Helpers;
 using Twitch10WcfService.Models.SummonerByName;
 using Formatting = System.Xml.Formatting;
 
@@ -12,7 +13,7 @@ namespace Twitch10WcfService.Models
 {
     public class JsonParser
     {
-        private const string ApiKey = "RGAPI-ea3d6233-a633-4893-b73d-3149d1a9c316";
+        private readonly string _apiKey = Data.ApiKey;
 
         public T Parser<T>(string region, string summonerName)
         {
@@ -25,7 +26,7 @@ namespace Twitch10WcfService.Models
                 };
                 var json =
                     w.GetStringAsync(
-                            $"https://{region}.api.riotgames.com/lol/summoner/v3/summoners/by-name/{summonerName}?api_key={ApiKey}")
+                            $"https://{region}.api.riotgames.com/lol/summoner/v3/summoners/by-name/{summonerName}?api_key={_apiKey}")
                         .Result;
                 return JsonConvert.DeserializeObject<T>(json, settings);
             }
@@ -47,7 +48,7 @@ namespace Twitch10WcfService.Models
             {
                 var json =
                     w.GetStringAsync(
-                        $"https://{region}.api.riotgames.com/lol/match/v3/matchlists/by-account/{GetAccountId(region,summonerName)}/recent?api_key={ApiKey}").Result;
+                        $"https://{region}.api.riotgames.com/lol/match/v3/matchlists/by-account/{GetAccountId(region,summonerName)}/recent?api_key={_apiKey}").Result;
                 var result =
                     Convert.ToInt64(
                         JsonConvert.DeserializeObject<MatchListBySummonerId.RootObject>(json).matches.First().gameId);
@@ -61,7 +62,7 @@ namespace Twitch10WcfService.Models
             {
                 var json =
                     w.GetStringAsync(
-                            $"https://{region}.api.riotgames.com/lol/match/v3/matches/{GetMatchId(region, summonerName)}?api_key={ApiKey}")
+                            $"https://{region}.api.riotgames.com/lol/match/v3/matches/{GetMatchId(region, summonerName)}?api_key={_apiKey}")
                         .Result;
 
                 return JsonConvert.DeserializeObject<MatchById.RootObject>(json);
@@ -74,7 +75,7 @@ namespace Twitch10WcfService.Models
             {
                 var json =
                     w.GetStringAsync(
-                            $"https://{region}.api.riotgames.com/lol/match/v3/matches/{matchId}?api_key={ApiKey}")
+                            $"https://{region}.api.riotgames.com/lol/match/v3/matches/{matchId}?api_key={Data.ApiKey}")
                         .Result;
                 return JsonConvert.DeserializeObject<MatchById.RootObject>(json);
             }

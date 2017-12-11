@@ -97,10 +97,9 @@
 
         </StackPanel>
         <StackPanel RelativePanel.Below="StackPanel2" Orientation="Horizontal" x:Name="StackPanel4">
-            <ListView ItemsSource="{x:Bind ViewModel.CurrentBuilds}" SelectedItem="{Binding SelectedCurrentBuild, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
-                <ListView.ItemTemplate>
+			<GridView ItemsSource="{Binding CurrentBuilds, UpdateSourceTrigger=PropertyChanged}" >
+				<GridView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <Image Width="50" Height="50">
                                     <Image.Source>
@@ -137,18 +136,18 @@
                                         <BitmapImage UriSource="{Binding Item6Url, Mode=TwoWay}"></BitmapImage>
                                     </Image.Source>
                                 </Image>
-
                             </StackPanel>
-                        </StackPanel>
                         
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </GridView.ItemTemplate>
+            </GridView>
             <Button Content="Add selected build" Click="{x:Bind ViewModel.AddBuild}"></Button>
-        </StackPanel>
+			<Button Content="Delete selected build" Click="{x:Bind ViewModel.DeleteSelectedBuild}"></Button>
+
+		</StackPanel>
         <StackPanel RelativePanel.Below="StackPanel4">
             <Button Click="{x:Bind ViewModel.GetUsersBuilds}" Content="Get my builds"></Button>
-            <GridView ItemsSource="{x:Bind ViewModel.BuildsList}">
+			<GridView ItemsSource="{x:Bind ViewModel.BuildsList}" SelectedItem="{Binding SelectedCurrentBuild, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" IsItemClickEnabled="True">
                 <GridView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">

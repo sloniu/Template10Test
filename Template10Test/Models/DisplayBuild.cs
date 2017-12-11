@@ -19,5 +19,6 @@ namespace Template10Test.Models
         public string MatchId { get; set; }
         public string PlayerName { get; set; }
         public string Region { get; set; }
+		public int BuildId { get; set; }
     }
 }

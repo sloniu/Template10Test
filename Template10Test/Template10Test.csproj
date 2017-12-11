@@ -124,6 +124,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Data.cs" />
     <Compile Include="Models\Build.cs" />
     <Compile Include="Models\Data.cs" />
     <Compile Include="Models\Channel\Links.cs" />

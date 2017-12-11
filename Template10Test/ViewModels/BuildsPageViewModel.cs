@@ -12,6 +12,7 @@ using Template10Test.Models;
 using Template10Test.Models.Riot.ChampionById;
 using Template10Test.Twitch10ServiceReference;
 using Template10Test.Views;
+using Data = Template10Test.Helpers.Data;
 
 namespace Template10Test.ViewModels
 {
@@ -20,7 +21,7 @@ namespace Template10Test.ViewModels
         private const string Url = "http://twitch10webapitest.azurewebsites.net";
         private const string ChampionUrl = "https://ddragon.leagueoflegends.com/cdn/7.15.1/img/champion";
         private const string ItemUrl = "http://ddragon.leagueoflegends.com/cdn/7.15.1/img/item";
-        private const string ApiKey = "RGAPI-ea3d6233-a633-4893-b73d-3149d1a9c316";
+        private readonly string _apiKey = Data.ApiKey;
 
         private BuildContract _build;
 
@@ -32,7 +33,7 @@ namespace Template10Test.ViewModels
         private string _championImage = "ms-appx://Template10Test/Assets/StoreLogo.png";
         private readonly Service1Client _client = new Service1Client();
 
-        private List<DisplayBuild> _currentBuilds;
+        private ObservableCollection<DisplayBuild> _currentBuilds;
         private string _item1Img = "ms-appx://Template10Test/Assets/StoreLogo.png";
 
         private string _item2Img = "ms-appx://Template10Test/Assets/StoreLogo.png";
@@ -172,7 +173,7 @@ namespace Template10Test.ViewModels
             }
         }
 
-        public List<DisplayBuild> CurrentBuilds
+        public ObservableCollection<DisplayBuild> CurrentBuilds
         {
             get { return _currentBuilds; }
             set
@@ -222,6 +223,26 @@ namespace Template10Test.ViewModels
             }
         }
 
+		public async void DeleteSelectedBuild()
+		{
+			if (SelectedCurrentBuild == null)
+			{
+				return;
+			}
+
+			try
+			{
+				var delete = _client.DeleteBuildAsync(SelectedCurrentBuild.BuildId);
+				await delete;
+				BuildsList.Remove(SelectedCurrentBuild);
+			}
+			catch (FaultException<ServiceException> e)
+			{
+				WarningMessage = e.Detail.Message;
+				//throw;
+			}
+		}
+
         public async void FetchBuilds()
         {
             if (PlayerName == null)
@@ -238,15 +259,14 @@ namespace Template10Test.ViewModels
                 {
                     var json =
                         w.GetStringAsync(
-                                $"https://{Region.Value}.api.riotgames.com/lol/static-data/v3/champions/{Build.ChampionId}?locale=en_US&tags=image&api_key={ApiKey}")
-                            ;
+                                $"https://{Region.Value}.api.riotgames.com/lol/static-data/v3/champions/{Build.ChampionId}?locale=en_US&tags=image&api_key={_apiKey}");
                     await json;
                     var o = json.Result;
                     var r = JsonConvert.DeserializeObject<RootObject>(o);
                     ChampionImage = $"{ChampionUrl}/{r.image.full}";
                 }
 
-                CurrentBuilds = new List<DisplayBuild>
+                CurrentBuilds = new ObservableCollection<DisplayBuild>
             {
                 new DisplayBuild
                 {
@@ -259,22 +279,26 @@ namespace Template10Test.ViewModels
                     Item6Url = $"{ItemUrl}/{Build.Item6Id}.png",
                     MatchId = Build.MatchId.ToString(),
                     PlayerName = Build.PlayerName,
-                    Region = Build.Region
+                    Region = Build.Region,
+					BuildId = Build.BuildId
                 }
             };
             }
             catch (FaultException<ServiceException> e)
             {
                 WarningMessage = e.Detail.Message;
-                throw;
+                //throw;
             }
             
         }
 
         public async void GetUsersBuilds()
         {
-            if (string.IsNullOrEmpty(Region.Value))
-                return;
+	        if (Region == null)
+	        {
+		        return;
+	        }
+
             if (string.IsNullOrEmpty(LoginManager.Instance.Token))
             {
                 WarningMessage = "You need to log in to post build.\n" +
@@ -295,9 +319,10 @@ namespace Template10Test.ViewModels
                     {
                         var json =
                             w.GetStringAsync(
-                                    $"https://{Region.Value}.api.riotgames.com/lol/static-data/v3/champions/{build.ChampionId}?locale=en_US&tags=image&api_key={ApiKey}")
-                                .Result;
-                        var r = JsonConvert.DeserializeObject<RootObject>(json);
+                                    $"https://{Region.Value}.api.riotgames.com/lol/static-data/v3/champions/{build.ChampionId}?locale=en_US&tags=image&api_key={_apiKey}")
+                                ;
+	                    var json2 = await json;
+                        var r = JsonConvert.DeserializeObject<RootObject>(json2);
 
                         BuildsList.Add(new DisplayBuild
                         {
@@ -318,7 +343,7 @@ namespace Template10Test.ViewModels
             catch (FaultException<ServiceException> e)
             {
                 WarningMessage = e.Detail.Message;
-                throw;
+                //throw;
             }
             
         }
@@ -343,7 +368,7 @@ namespace Template10Test.ViewModels
             catch (FaultException<ServiceException> e)
             {
                 WarningMessage = e.Detail.Message;
-                throw;
+                //throw;
             }
             
         }
@@ -365,7 +390,7 @@ namespace Template10Test.ViewModels
             catch (FaultException<ServiceException> e)
             {
                 WarningMessage = e.Detail.Message;
-                throw;
+                //throw;
             }
 
         }
